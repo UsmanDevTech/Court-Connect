@@ -1,0 +1,91 @@
+﻿@page
+@model AdminPanel.Pages.account.dashboardModel
+
+<style>
+    .info-box i {
+        font-size: 22px !important;
+    }
+
+    .card-title {
+        color: #6CBA9E;
+    }
+
+    .drpbtn {
+        color: #707070;
+        background-color: #F8F9FB;
+        border: 1px solid #F8F9FB;
+    }
+
+    .drpbtn::after {
+        margin-left: 50px;
+    }
+
+</style>
+<div class="content pt-4">
+    <div class="container-fluid">
+        <div class="row my-3">
+            <div class="col-xl-3 col-lg-6 col-sm-12 col-12">
+                <a asp-page="/management/users">
+                    <div class="info-box shadow-sm p-0-7 min-height-70 m-b-10" >
+                        <span class="info-box-icon complete0  custom-counter-bx">
+                            <i class="fa fa-users f-25-px text-white"></i>
+                        </span>
+                        <div style="padding:0 10px;">
+                            <span class="info-box-text text-grey med-font poppin-m">Total Users</span>
+                            <span class="poppin-b  med-font mt-2" id="totalUsers">@Model.counters.users</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12 col-12">
+                <a asp-page="/management/leagues">
+                    <div class="info-box shadow-sm p-0-7 min-height-70 m-b-10" >
+                        <span class="info-box-icon  complete0 custom-counter-bx">
+                            <i class="fas fa-medal f-25-px text-white"></i>
+                        </span>
+                        <div style="padding:0 10px;">
+                            <span class="info-box-text text-grey med-font poppin-m">Total Leagues</span>
+                            <span class="poppin-b  med-font mt-2" id="totalLeagues">@Model.counters.leagues</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12 col-12">
+                <a asp-page="/management/matches">
+                    <div class="info-box shadow-sm p-0-7 min-height-70 m-b-10">
+                        <span class="info-box-icon complete0 custom-counter-bx">
+                               <i class="fas fa-baseball-ball f-25-px text-white"></i>
+                        </span>
+                        <div style="padding:0 10px;">
+                            <span class="info-box-text text-grey med-font poppin-m">Total Matches</span>
+                            <span class="poppin-b  med-font mt-2" id="totalMatches">@Model.counters.matches</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12 col-12">
+                <a asp-page="/management/couchingHub">
+                    <div class="info-box shadow-sm p-0-7 min-height-70 m-b-10" >
+                        <span class="info-box-icon  complete0 custom-counter-bx">
+                            <i class="fas fa-info-circle f-25-px text-white"></i>
+                        </span>
+                        <div style="padding:0 10px;">
+                            <span class="info-box-text text-grey med-font poppin-m">
+                                Total Couching Hubs
+                            </span>
+                            <span class="poppin-b  med-font mt-2" id="totalHubs">@Model.counters.couchingHubs</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+       
+    </div>
+</div>
+<script src="~/content/plugins/jquery/jquery.min.js"></script>
+<script>
+   
+</script>
+
+

@@ -1,0 +1,444 @@
+﻿@page
+@model AdminPanel.Pages.management.registerOrganizationModel
+
+<div class="container-fluid">
+    <div class="row mb-2 pt-4">
+        <div class="col-12">
+            <h4>Add Organization</h4>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form id="dataForm">
+                <h5 class="my-2">Organization Detail</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="logoPic">Logo <span class="text-danger">*</span></label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="logoPic" name="logoPic" accept="image/*">
+                                <label class="custom-file-label" for="logoPic">Choose Icon</label>
+                            </div>
+                            <span class="text-danger" id="logoPic-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="organizationName">Name <code>max 60 characters</code></label>
+                            <input type="text" class="form-control rounded" name="organizationName" id="organizationName" placeholder="enter organization name" maxlength="60">
+                            <span class="text-danger" id="organizationName-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="organizationPhoneNumber">Phone Number <span class="text-danger">*</span> <code>international format +1 XXX XXX XXXX</code></label>
+                            <input type="tel" class="tel form-control rounded" id="organizationPhoneNumber" pattern="\d*" x-autocompletetype="tel" placeholder="phonenumber internationally recognized standard" autofocus>
+                            <span class="text-danger" id="organizationPhoneNumber-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="organizationEmail">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control rounded" name="organizationEmail" id="organizationEmail" placeholder="enter unique email address">
+                            <span class="text-danger" id="organizationEmail-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="organizationDetail">Detail <span class="text-danger">*</span></label>
+                            <textarea rows="3" class="form-control rounded" name="organizationDetail" id="organizationDetail" placeholder="enter detail"></textarea>
+                            <span class="text-danger" id="organizationDetail-error"></span>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="my-2">Owner Detail</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                       <div class="form-group">
+                            <label for="profileImage">Profile Image <code>optional</code></label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="profileImage" name="profileImage" accept="image/*">
+                                <label class="custom-file-label" for="profileImage">Choose Icon</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="fullName">Fullname <code>max 60 characters</code></label>
+                            <input type="text" class="form-control rounded" name="fullName" id="fullName" placeholder="enter user fullname" maxlength="60">
+                            <span class="text-danger" id="fullname-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="userEmail">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control rounded-0" name="userEmail" id="userEmail" placeholder="enter unique email address">
+                            <span class="text-danger" id="userEmail-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="password">Password <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control rounded" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                            <span class="text-danger" id="password-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="float-right">
+                            <button type="reset" class="btn btn-danger">Reset</button>
+                            <button type="button" class="btn btn-success" onclick="commitChangesOnDatabase()">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/content/plugins/phonenumber-validator/jquery.caret.js"></script>
+<script src="~/content/plugins/phonenumber-validator/jquery.mobilephonenumber.js"></script>
+<script>
+     $(function () {
+        var input = $('[type=tel]')
+        input.mobilePhoneNumber({ allowPhoneWithoutPrefix: '+1' });// U.S.
+     });
+
+    function commitChangesOnDatabase() {
+           loaderDiv.innerHTML = '<div class="loading">Loading&#8230;</div>';
+
+           var prefix = $('[type=tel]').mobilePhoneNumber('prefix');
+           var val = $('[type=tel]').mobilePhoneNumber('val');
+           var countryCode = $('[type=tel]').mobilePhoneNumber('country');
+           var phoneNumberWithoutPrefix = val.replace(prefix, '');
+           var userInputNumber = $('[type=tel]').val();
+           var firstLetterUserInputString = userInputNumber.charAt(0);
+           var executeHttpRequest = true;
+           var finalPhoneNumber = null;
+
+           //Organization Detail
+           var logo = $('#logoPic').get(0).files[0];
+           var organizationName = $("#organizationName").val();
+           var organizationEmail = $("#organizationEmail").val();
+           var organizationDetail = $("#organizationDetail").val();
+
+           //Owner Detail
+           var profilePicture = $('#profileImage').get(0).files[0];
+           var name = $("#fullName").val();
+           var email = $("#userEmail").val();
+           var password = $("#password").val();
+
+           var isEmailUnique = false;
+           var isOrganizationNameUnique = false;
+           var isUserEmailUnique = false;
+           var isPhonenumberUnique = false;
+           var isPasswordValid = true;
+
+           //Begin Password Validations
+           var lowerCaseLetters = /[a-z]/g;
+           var upperCaseLetters = /[A-Z]/g;
+           var numbers = /[0-9]/g;
+           var nonAlphaNumaric = /[^a-zA-Z0-9]/g;
+           if (password.length <= 5) {
+               toastr.error('Password is required and at least 6 charactors long.');
+               $("#password-error").html('Password is required and at least 6 charactors long.');
+
+               isPasswordValid = false;
+           }
+           else if (!password.match(lowerCaseLetters)) {
+               toastr.error('Password atleast contain 1 lowercase letter.');
+               $("#password-error").html('Password atleast contain one (1) lowercase letter.');
+
+               isPasswordValid = false;
+           }
+           else if (!password.match(upperCaseLetters)) {
+               toastr.error('Password atleast contain 1 uppercase letter.');
+               $("#password-error").html('Password atleast contain one (1) uppercase letter.');
+
+               isPasswordValid = false;
+           }
+           else if (!password.match(numbers)) {
+               toastr.error('Password atleast contain 1 number.');
+               $("#password-error").html('Password atleast contain one (1) numeric letter.');
+
+               isPasswordValid = false;
+           }
+           else if (!password.match(nonAlphaNumaric)) {
+               toastr.error('Password atleast contain 1 non-alphanumaric charactor.');
+               $("#password-error").html('Password atleast contain one (1) non-alphanumaric charactor.');
+               isPasswordValid = false;
+           }
+
+           if (!isPasswordValid) {
+               $("#password").addClass("is-invalid");
+               executeHttpRequest = false;
+           }
+           else {
+               $("#password-error").html("");
+               $("#password").removeClass("is-invalid");
+           }
+           //End Password Validations
+
+            //Begin general validation
+             if ($('#logoPic')[0].files.length == 0) {
+                executeHttpRequest = false;
+                $("#logoPic-error").html('logo is required.');
+             }
+             else {
+                 $("#logoPic-error").html('');
+             }
+
+             if (organizationDetail.trim() == "") {
+                executeHttpRequest = false;
+                $("#organizationDetail-error").html('organization detail is required.');
+             }
+             else {
+                $("#organizationDetail-error").html('');
+             }
+
+             if (organizationName.trim() == "") {
+                executeHttpRequest = false;
+                $("#organizationName-error").html('organization name is required.');
+             }
+             else {
+                $("#organizationName").removeClass("is-invalid");
+               $("#organizationName-error").html('');
+
+                 //Organization name validation start
+           $.ajax({
+                   type: "GET",
+                   url: "/manage/checkValueUniqueness/2/0/" + organizationName,
+                   async: false,
+                   complete: function (data) {
+                       if (data.responseJSON.status) {
+                           isOrganizationNameUnique = data.responseJSON.result;
+                           if (!isOrganizationNameUnique) {
+                               toastr.error('organization name already exist.');
+                               $("#organizationName-error").html('organization name already exist.');
+                           }
+                       }
+                       else {
+                           toastr.error("organization name validator error.", data.responseJSON.result);
+                       }
+                   }
+           });
+
+           if (!isOrganizationNameUnique) {
+               $("#organizationName").addClass("is-invalid");
+               executeHttpRequest = false;
+           }
+           else {
+               $("#organizationName").removeClass("is-invalid");
+               $("#organizationName-error").html('');
+           }
+           //Organization name validation end
+             }
+
+             if (name.trim() == "") {
+               executeHttpRequest = false;
+               $("#fullname-error").html('owner name is required.');
+             }
+             else {
+                $("#fullname-error").html('');
+             }
+           //End general validation
+
+
+
+           //Organization email validation start
+           if (IsEmail(organizationEmail)) {
+               $("#organizationEmail").removeClass("is-invalid");
+               $("#organizationEmail-error").html('');
+
+               $.ajax({
+                   type: "GET",
+                   url: "/manage/checkValueUniqueness/3/0/" + organizationEmail,
+                   async: false,
+                   complete: function (data) {
+                       if (data.responseJSON.status) {
+                           isEmailUnique = data.responseJSON.result;
+                           if (!isEmailUnique) {
+                               toastr.error('organization email already exists.');
+                               $("#organizationEmail-error").html('organization with this email already exists.');
+                           }
+                       }
+                       else {
+                           toastr.error("organizationEmail validator error.", data.responseJSON.result);
+                       }
+                   }
+               });
+           }
+           else {
+               toastr.error('organization email is badly formatted');
+               $("#organizationEmail-error").html('organization email is badly formatted');
+
+               executeHttpRequest = false;
+           }
+
+           if (!isEmailUnique) {
+               $("#organizationEmail").addClass("is-invalid");
+               executeHttpRequest = false;
+           }
+           else {
+               $("#organizationEmail").removeClass("is-invalid");
+               $("#organizationEmail-error").html('');
+           }
+           //Organization email validation end
+
+           //Owner email validation start
+            if (IsEmail(email)) {
+
+               $("#userEmail").removeClass("is-invalid");
+               $("#userEmail-error").html('');
+
+               $.ajax({
+                   type: "GET",
+                   url: "/manage/checkValueUniqueness/0/0/" + email,
+                   async: false,
+                   complete: function (data) {
+                       if (data.responseJSON.status) {
+                           isUserEmailUnique = data.responseJSON.result;
+                           if (!isUserEmailUnique) {
+                               toastr.error('email already exists.');
+                               $("#userEmail-error").html('email already exists.');
+                           }
+                       }
+                       else {
+                           toastr.error("Email validator error.", data.responseJSON.result);
+                       }
+                   }
+               });
+           }
+           else {
+               toastr.error('email is badly formatted');
+               $("#userEmail-error").html('email is badly formatted');
+
+               executeHttpRequest = false;
+           }
+
+           if (!isUserEmailUnique) {
+               $("#userEmail").addClass("is-invalid");
+               executeHttpRequest = false;
+           }
+           else {
+               $("#userEmail").removeClass("is-invalid");
+               $("#userEmail-error").html('');
+           }
+           //Owner email validation end
+
+           //Begin Phonenumber validations
+           if (firstLetterUserInputString != "+" || !$('[type=tel]').mobilePhoneNumber('validate')) {
+               isPhonenumberUnique = false;
+               toastr.error('Phone number in E.164 format: +1 XXX XXX XXXX');
+               $("#phone-error").html('Phone number in E.164 format: +1 XXX XXX XXXX');
+           }
+           else {
+               finalPhoneNumber = countryCode + "," + prefix.replace(/\D/g, '') + "," + phoneNumberWithoutPrefix.replace(/\D/g, '');
+               
+               $("[type=tel]").removeClass("is-invalid");
+               $("#phone-error").html('');
+               $.ajax({
+                   type: "GET",
+                   url: "/manage/checkValueUniqueness/1/0/" + finalPhoneNumber,
+                   async: false,
+                   complete: function (data) {
+                       if (data.responseJSON.status) {
+                           isPhonenumberUnique = data.responseJSON.result;
+                           if (!isPhonenumberUnique) {
+                               toastr.error('Phone number is already exist.');
+                               $("#phone-error").html('Phone number is already exist.');
+                           }
+                       }
+                       else {
+                           toastr.error("phone number validator error.", data.responseJSON.result);
+                       }
+                   }
+               });
+           }
+
+           if (!isPhonenumberUnique) {
+               $("[type=tel]").addClass("is-invalid");
+               executeHttpRequest = false;
+           }
+           else {
+               $("[type=tel]").removeClass("is-invalid");
+               $("#phone-error").html('');
+           }
+           //End phone number validation
+
+            if (executeHttpRequest) {
+               var organizationData = {};
+               organizationData.email = organizationEmail;
+               organizationData.phone = finalPhoneNumber;
+               organizationData.detail = organizationDetail;
+               organizationData.longitute = 74.2728;
+               organizationData.latitute = 31.4697;
+               organizationData.address = "Johar Town";
+               organizationData.name = organizationName;
+
+               organizationData.userPassword = password;
+               organizationData.userEmail = email;
+               organizationData.userName = name;
+
+               //Logo upload
+               var formData = new FormData();
+               //For image file
+               formData.append('file', logo);
+               $.ajax({
+                       type: "POST",
+                       url: "/manage/uploadFile",
+                       data: formData,
+                       contentType: false,
+                       processData: false,
+                       cache: false,
+                       async: false,
+                       complete: function (data) {
+                         organizationData.logo = data.responseJSON;
+                         if ($('#profileImage')[0].files.length == 0) {
+                            loadHttpRequest("POST", "/manage/registerOrganization", addEditRecordCallBackHandler,JSON.stringify(organizationData));
+                         }
+                         else{
+                            var formData1 = new FormData();
+                            //For image file
+                            formData1.append('file', profilePicture);
+
+                            $.ajax({
+                                type: "POST",
+                                url: "/manage/uploadFile",
+                                data: formData1,
+                                contentType: false,
+                                processData: false,
+                                cache: false,
+                                async: false,
+                                complete: function (profilePicture) {
+                                    organizationData.userProfilePic = profilePicture.responseJSON;
+                                    loadHttpRequest("POST", "/manage/registerOrganization", addEditRecordCallBackHandler,JSON.stringify(organizationData));
+                                }
+                            });
+                         }
+                       }
+               });
+            }
+            else {
+               loaderDiv.innerHTML = '';
+            }
+       }
+
+       function IsEmail(email) {
+           var regex = /^([a-zA-Z0-9_\.\-\+])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+           if (!regex.test(email)) {
+               return false;
+           } else {
+               return true;
+           }
+       }
+       function addEditRecordCallBackHandler(xhr) {
+
+           Toast.fire({
+               icon: 'success',
+               title: 'Organization successfully registered.'
+           }).then(function () {
+               document.getElementById('dataForm').reset();
+           });
+       }
+</script>

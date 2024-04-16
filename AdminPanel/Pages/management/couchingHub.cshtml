@@ -1,0 +1,878 @@
+﻿@page
+@model AdminPanel.Pages.management.couchingHubModel
+@{
+}
+
+<div class="container-fluid">
+    <div class="row mb-2 pt-4">
+        <div class="col-sm-6">
+            <h4><span id="pageTitleFilter"></span> Couching Hub</h4>
+        </div>
+        <div class="col-sm-6">
+            <div class="float-sm-right">
+                <button class="btn btn-primary" id="open_add_couchingHub_modal"><i class="fa fa-plus"></i> Add new</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table w-100" id="couching_table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>Benifits</th>
+                            <th>Purchase History</th>
+                            <th>Created At</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<input type="hidden" id="statusType" value="0" />
+
+@*Manage Couching Hub*@
+<div class="modal" id="add_hub_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h3 class="modal-title">Manage Couching Hub</h3>
+                <button type="button" class="close cls" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body col-xs-12 col-md-12">
+                <div class="row">
+                    <div class="row">
+                        <input id="id" hidden />
+                        <input id="mType" hidden />
+                        <div class="form-group mb-3 col-md-6">
+                            <label for="Type">Type</label>
+                            <select id="couchingType" name="Type" class="form-control">
+                                <option value="0">Free</option>
+                                <option value="1">Paid</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group mb-3 col-md-6">
+                            <label>Category</label>
+                            <select id="categorySelect" class="form-control">
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-6">
+                            <label for="hubTitle">Title</label>
+                            <input id="title" name="hubTitle" maxlength="30" type="text" class="form-control" />
+                            <span class="text-danger" id="title_error"></span>
+                        </div>
+                         <div class="form-group mb-3 col-md-6">
+                            <label for="hubContent">Image/Video</label>
+                            <input id="file" name="hubContent" accept="image/*,video/*" type="file" class="form-control" />
+                            <span class="text-danger" id="file_error"></span>
+                        </div>
+                        <div class="form-group mb-3 col-md-6">
+                            <label for="hubPrice">Price</label>
+                            <input id="price" name="hubPrice" min="0" value="0" onkeypress="return event.charCode != 45" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" class="form-control" />
+                            <span class="text-danger" id="price_error"></span>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-12">
+                            <label for="hubDescription">Description</label>
+                            <textarea id="description" name="hubDescription" rows="3" class="form-control w-100"></textarea>
+                            <span class="text-danger" id="description_error"></span>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <button id="num" type="button" class="btn btn-primary">Add Benifits</button>
+                            <div id="targetDIV"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer float-right">
+                <button id="couchingHubBtn" onclick="manageCouchingHub()" class="btn btn-primary">Save</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="hub_benifit_modal">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h3 class="modal-title">Benifits</h3>
+                <button type="button" class="close cls" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body col-xs-12 col-md-12">
+                <div class="row">
+                        <div class="col-12">
+                            <ul id="benifitsDiv">
+
+                            </ul>
+                        </div>
+                </div>
+            </div>
+       </div>
+    </div>
+</div>
+
+<div class="modal" id="hub_purchased_users">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h3 class="modal-title">Purchasing Users</h3>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row" id="purchasingUserDiv">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="hub_detail">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h3 class="modal-title">Couching Hub Detail</h3>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div>
+                    <h5 id="heading"></h5>
+                    <div id="imgVideoDiv"></div>
+                    <p id="detail"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+       $(function () {
+           var columns = [
+               {
+                   "data": "data.id",
+                   "name": "data.id"
+               },
+               {
+                   "data": "data.category",
+                   "name": "data.category",
+                   "render": function (data, row) {
+                           return `<div>${data}</div>`;
+                   }
+               },
+               {
+                   "data": "data.title",
+                   "name": "data.title",
+                   "render": function (data, row, payload) {
+                           return `<input type="hidden" value="${payload.data.description}"/><a class="text-decoration-underline cursor-pointer" 
+                           onclick="hubInfo(this,'${payload.data.title}',${payload.data.mediaType},'${payload.data.url}')">${data}</a>`;
+                   }
+               },
+               {
+                   "data": "data.type",
+                   "name": "data.type",
+                   "render": function (data, row)
+                   {
+                       if(data == 0)
+                           return '<span class="badge badge-primary">Free</span>';
+                       else
+                           return '<span class="badge badge-primary">Payable</span>';
+                   }
+               },
+               {
+                   "data": "data.price",
+                   "name": "data.price",
+                   "render": function (data, row) {
+                          return `<div>${data}</div>`;
+                    }
+               },
+               {
+                   "data": "data.id",
+                   "name": "data.id",
+                   "render": function (data, row) {
+                         return  `<a class="btn btn-sm btn-outline-primary cursor-pointer hubBenifits" data-hubId="${data}"><i class="fas fa-box"></i></a>`;                   }
+               },
+               {
+                   "data": "data.id",
+                   "name": "data.id",
+                   "render": function (data, row) {
+                         return  `<a class="btn btn-sm btn-outline-primary cursor-pointer hubPurchasedUsers" data-hubId="${data}"><i class="fas fa-users"></i></a>`;                   }
+               },
+               {
+                   "data": "data.date",
+                   "name": "data.date",
+                   "render": function (data, row) {
+                           return `<div>${data}</div>`;
+                   }
+               },
+                {
+                   "data": "data.deleted",
+                   "name": "data.deleted",
+                   "render": function (data, row) {
+                       if (data) {
+                           return '<span class="badge badge-danger">blocked</span>';
+                       }
+                       else {
+                           return '<span class="badge badge-success">active</span>';
+                       }
+                   }
+               },
+               {
+                   "data": "data.id",
+                   "name": "data.id",
+                   "render": function (data, row, payload)
+                   {
+                       var status = payload.data.deleted;
+                       if(status == false){
+                           return `<input type="hidden" value="${payload.data.description}"/><a class="btn btn-sm btn-outline-primary" onclick="showEditCouchingHubModal(this,${data},'${payload.data.title}'
+                        ,'${payload.data.price}','${payload.data.type}',${payload.data.categoryId}, ${payload.data.mediaType})"><i class="fas fa-edit"></i></a>
+                           <a class="btn btn-sm btn-outline-danger ml-2" id="deleteCouchingHubBtn"><i class="fas fa-ban"></i></a>`;
+                       }
+                       else{
+                            return `<a class="btn btn-sm btn-outline-success" id="deleteCouchingHubBtn"><i class="fas fa-check-circle"></i></a>`;
+                       }
+
+                   }
+               }
+           ];
+           var order = [[1, "desc"]];
+           var columnDefs = [{
+               "targets": [0],
+               "visible": false,
+               "searchable": false
+           }];
+           //Init Datatable
+           initCouchingHubDatatable('#couching_table', '/manage/getPaginationData/3', '#statusType', '#pageTitleFilter', columns, order, columnDefs);
+       
+           GetCategoryFunction()
+       
+       });
+    
+    function GetCategoryFunction(){
+        loadHttpRequest("GET", `/manage/getCategory`, getCategoriesCallBackHandler);
+    }
+
+    function getCategoriesCallBackHandler(categories) {
+         $("#categorySelect").html("");
+        if (categories != null && categories.length > 0){
+             $("#categorySelect").html("");
+            categories.forEach(function (category) {
+                $("#categorySelect").append(`<option value="${category.id}">${category.name}</option>`);
+            });
+        }
+    }
+
+    //Benifits Points Append
+    var indexList = [];
+    var i = 0;
+    $('#num').on('click', function () {
+
+        $("#targetDIV").append(`<div class="row clearfix border rounded my-2 py-2" id="a${i}">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                      <textarea id="point${i}"  class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-12">
+                                <a onclick="delIndex(${i})" class="btn btn-danger mt-4 float-right"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </div>`);
+        indexList.push(i);
+        i++;
+    });
+
+    
+    $('.cls').on('click', function () {
+        $("#targetDIV").html("");
+        indexList = [];
+        i = 0;
+    })
+
+    function delIndex(i) {
+
+        const index = indexList.indexOf(i);
+        if (index > -1) {
+            indexList.splice(index, 1);
+            $('#a' + i).addClass('d-none');
+        }
+    }
+
+    //Soft Delete Couching Content 
+       $('#couching_table tbody').on('click', '[id*=deleteCouchingHubBtn]', function () {
+           var data = table.row($(this).parents('tr')).data();
+           var title, confirmButtonText;
+
+           var statusCheck = data.data.deleted;
+
+           if(statusCheck){
+               title = 'Are you sure, you want to unblock this couching content?';
+               confirmButtonText = 'Yes, Unblock it!';
+           }
+           else{
+               title = 'Are you sure, you want to block this couching content?';
+               confirmButtonText = 'Yes, Block it!';
+           }
+
+           swal.fire({
+               title: title,
+               icon: 'warning',
+               allowOutsideClick: false,
+               showCloseButton: true,
+               confirmButtonColor: '#3085d6',
+               cancelButtonColor: '#d33',
+               confirmButtonText: confirmButtonText
+           }).then((result) => {
+                   if (result.isConfirmed) {
+                       if(statusCheck){
+                           loadHttpRequest("GET", "/manage/softDeleteCouchingHub?id="+data.data.id + "&isDeleted=" + false, softDeleteCallback);
+                       }
+                       else{
+                           loadHttpRequest("GET", "/manage/softDeleteCouchingHub?id="+data.data.id + "&isDeleted=" + true, softDeleteCallback);
+                       }
+                   }
+           });
+       });
+
+       function softDeleteCallback(response) {
+           Swal.fire({
+               title: 'Successfull',
+               text: 'Status updated.',
+               imageUrl: '/Images/Group 227317.png',
+               imageAlt: 'Custom image',
+               timer: 1500,
+               showCancelButton: false,
+               showConfirmButton: false
+           }).then(function () {
+               table.draw();
+           })
+       }
+
+       //Add Couching Hub Content
+       $('#open_add_couchingHub_modal').click(function () {
+           $('#title').val('');
+           $("#title_error").html('');
+           $('#price').val(0);
+           $("#price_error").html('');
+           $('#description').val('');
+           $("#description_error").html('');
+
+           $("#file").val('');
+           $("#file_error").html('');
+           
+           document.getElementById('couchingType').disabled = false;
+           document.getElementById('categorySelect').disabled = false;
+       
+           $("#targetDIV").html("");
+           indexList = [];
+           i = 0;
+
+           $('#key').val("");
+           $("#add_hub_modal").modal('show');
+       });
+
+      async function manageCouchingHub(){
+           var id= $('#id').val();
+           if(CheckNullUndefined(id)){
+               await createCouchingHub();
+           }
+           else{
+               await editCouchingHub();
+           }
+       }
+
+       async function createCouchingHub() {
+           var title = $('#title').val();
+           var price = $('#price').val();
+           var description = $('#description').val();
+           var file = $('#file').val();
+           var couchingType = $('#couchingType').val();
+           var category = $('#categorySelect').val();
+
+           var benifitList = [];
+           var executeHttpRequest=true;
+
+           if (CheckNullUndefined(title)) {
+               executeHttpRequest=false;
+               $("#title_error").html('Title is required.');
+           }
+           else{
+               $("#title_error").html('');
+           }
+           if (CheckNullUndefined(price)) {
+               executeHttpRequest=false;
+               $("#price_error").html('Price must have min value 0.');
+           }
+           else{
+               $("#price_error").html('');
+           }
+           if (CheckNullUndefined(description)) {
+               executeHttpRequest=false;
+               $("#description_error").html('Decription is required.');
+           }
+           else{
+               $("#description_error").html('');
+           }
+           if (CheckNullUndefined(file)) {
+               executeHttpRequest=false;
+               $("#file_error").html('File is required.');
+           }
+           else{
+               $("#file_error").html('');
+           }
+
+           if (couchingType == '1'  && (parseFloat(price) == 0))  {
+               executeHttpRequest=false;
+               $("#price_error").html('Price is required.');
+           }else{
+               $("#price_error").html('');
+           }
+
+           if(indexList.length > 0){
+                for (var i = 0; i < indexList.length; i++) {
+
+                    var index = indexList[i];
+
+                    var point = $('#point' + index).val();
+                    if (CheckNullUndefined(point)) {
+                        executeHttpRequest = false;
+                    }
+                    else {
+                        benifitList.push(point);
+                    }
+                }
+           }
+               
+           if(executeHttpRequest==true) {
+
+                //Data object
+                var data = {};
+                data.type = parseInt(couchingType);
+                data.title = title;
+                data.description = description;
+                data.price = parseFloat(price);
+                data.timeLength = 10;
+                data.benifits = benifitList;
+                data.categoryId = parseInt(category);
+           
+                var ext = file.substring(file.lastIndexOf('.') + 1, file.length);
+                var formData = new FormData();
+                    
+                if (ext == 'mp4' || ext == '3gp' || ext == 'MOV' || ext == 'WMV' || ext == 'WebM' || ext == 'FLV' || ext == 'AVCHD') {
+                
+                    // Set up application
+                    //var filethumbnail = '';
+                    const files =  $('#file')[0].files[0];
+                    //const fileUrl = URL.createObjectURL(files);
+                    //filethumbnail = await getThumbnailForVideo(fileUrl);
+                    
+
+                    file = $('#file')[0].files[0]
+                    formData.append('file', file);
+                    $.ajax({
+                        type: "POST",
+                        url: "/manage/uploadFile",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        cache: false,
+                        async: false,
+                        complete: function (res) {
+
+                            data.thumbnail = "https://court-connect.assortcloud.com/Images/Base64Images/Base638211109624450320.png";
+                            data.url = res.responseJSON;
+                            data.contentType = 1;
+                            
+                           //var formData = new FormData();
+                           //filethumbnail = filethumbnail.substring(filethumbnail.lastIndexOf(',') + 1);
+                           //data1.file = filethumbnail;
+                            
+                            //Ajax Request
+                            loadHttpRequest("POST", "/manage/addCouchingHub", addCouchingHubCallback, JSON.stringify(data));
+                      
+                            //$.ajax({
+                            //    type: "POST",
+                            //    url: "/manage/base64FileUpload",
+                            //    data: JSON.stringify(data1),
+                            //    contentType: false,
+                            //    processData: false,
+                            //    cache: false,
+                            //    async: false,
+                            //    complete: function (res) {
+                            
+                            //        data.thumbnail = res.responseJSON;
+                         
+                            //        //Ajax Request
+                            //        loadHttpRequest("POST", "/manage/addCouchingHub", addCouchingHubCallback, JSON.stringify(data));
+                            //     }
+                            //});
+                         }
+                    });
+                    
+                }
+                if (ext == 'jpeg' || ext == 'jpg' || ext == 'png' || ext == 'PNG' || ext == 'JPG' || ext == 'JPEG' || ext == 'tiff' || ext == 'eps' || ext == 'raw') {
+                    
+                    file = $('#file')[0].files[0]
+                    formData.append('file', file);
+                    $.ajax({
+                        type: "POST",
+                        url: "/manage/uploadFile",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        cache: false,
+                        async: false,
+                        complete: function (res) {
+                            data.thumbnail = res.responseJSON;
+                            data.url = res.responseJSON;
+                            data.contentType = 0;
+
+                            //Ajax Request
+                            loadHttpRequest("POST", "/manage/addCouchingHub", addCouchingHubCallback, JSON.stringify(data));
+                         }
+                    });
+                }
+
+           }
+       }
+
+       function addCouchingHubCallback(response){
+            Swal.fire({
+                   title: 'Successfull',
+                   text: 'Couching hub successfully added.',
+                   imageUrl: '/Images/Group 227317.png',
+                   imageAlt: 'Custom image',
+                   timer: 1500,
+                   showCancelButton: false,
+                   showConfirmButton: false
+               }).then(function () {
+                   $("#add_hub_modal").modal('hide');
+                   table.draw();
+               })
+       }
+
+       //Edit Couching Hub Content
+    function showEditCouchingHubModal(hub, id, title, price, couchingType, category, mediaType) {
+
+        $("#file").val('');
+        $('#title').val(title);
+        $("#title_error").html('');
+        $('#price').val(price);
+        $("#price_error").html('');
+        $("#description_error").html('');
+      
+        var description = $(hub).parent().find('input').val();
+        $('#description').val(description);
+
+        $(`#couchingType option[value=${couchingType}]`).attr('selected', 'selected');
+        $("#couchingType").val(couchingType).change();
+        
+        $(`#categorySelect option[value=${category}]`).attr('selected', 'selected');
+        $("#categorySelect").val(category).change();
+        
+        document.getElementById('couchingType').disabled = true;
+        document.getElementById('categorySelect').disabled = true;
+        
+        $("#targetDIV").html("");
+        indexList = [];
+        i = 0;
+        
+        $('#id').val(id);
+        $('#mType').val(mediaType);
+        $("#add_hub_modal").modal('show');
+    }
+
+   async function editCouchingHub() {
+   
+        var title = $('#title').val();
+        var price = $('#price').val();
+        var description = $('#description').val();
+        var couchingType = $('#couchingType').val();
+        var mediaType = $('#mType').val();
+
+        var file = $('#file').val();
+        var id = $('#id').val();
+    
+        var executeHttpRequest=true;
+        var benifitList = [];
+     
+        if (CheckNullUndefined(title)) {
+               executeHttpRequest=false;
+               $("#title_error").html('Title is required.');
+        }
+        if (CheckNullUndefined(price)) {
+               executeHttpRequest=false;
+               $("#price_error").html('Price must have min value 0.');
+        }
+        if (CheckNullUndefined(description)) {
+               executeHttpRequest=false;
+               $("#description_error").html('Decription is required.');
+        }
+       
+        if (couchingType == '1'  && (parseFloat(price) == 0))  {
+            executeHttpRequest=false;
+            $("#price_error").html('Price is required.');
+        }
+
+        if(indexList.length > 0){
+            for (var i = 0; i < indexList.length; i++) {
+
+                var index = indexList[i];
+
+                var point = $('#point' + index).val();
+                if (CheckNullUndefined(point)) {
+                    executeHttpRequest = false;
+                }
+                else {
+                    benifitList.push(point);
+                }
+            }
+        }
+               
+           if(executeHttpRequest==true) {
+
+                //Data object
+                var data = {};
+                data.id = id; 
+                data.title = title;
+                data.description = description;
+                data.price = parseFloat(price);
+                data.benifits = benifitList;
+           
+                
+                var formData = new FormData();
+                 
+                if(CheckNullUndefined(file)){
+                     
+                    data.contentType = parseInt(mediaType);
+                    //Ajax Request
+                      loadHttpRequest("POST", "/manage/editCouchingHub", editCouchingHubCallback, JSON.stringify(data));
+                }
+                else{
+                    var ext = file.substring(file.lastIndexOf('.') + 1, file.length);
+                   
+                    if (ext == 'mp4' || ext == '3gp' || ext == 'MOV' || ext == 'WMV' || ext == 'WebM' || ext == 'FLV' || ext == 'AVCHD') {
+                
+                    // Set up application
+                    //var filethumbnail = '';
+                    const files =  $('#file')[0].files[0];
+                    //const fileUrl = URL.createObjectURL(files);
+                    //filethumbnail = await getThumbnailForVideo(fileUrl);
+                    
+                 
+                    file = files
+                    formData.append('file', file);
+                    $.ajax({
+                        type: "POST",
+                        url: "/manage/uploadFile",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        cache: false,
+                        async: false,
+                        complete: function (res) {
+                            
+                            data.url = res.responseJSON;
+                            data.contentType = 1;
+                            
+                            //var formData1 = new FormData();
+                            //filethumbnail = filethumbnail.substring(filethumbnail.lastIndexOf(',') + 1);
+                            //formData1.append('file', filethumbnail);
+                         
+                            data.thumbnail = "https://court-connect.assortcloud.com/Images/Base64Images/Base638211109624450320.png";
+                            //Ajax Request
+                            loadHttpRequest("POST", "/manage/editCouchingHub", editCouchingHubCallback, JSON.stringify(data));
+                
+                            //$.ajax({
+                            //    type: "POST",
+                            //    url: "/manage/base64FileUpload",
+                            //    data: formData1,
+                            //    contentType: false,
+                            //    processData: false,
+                            //    cache: false,
+                            //    async: false,
+                            //    complete: function (res) {
+                            
+                            //        data.thumbnail = res.responseJSON;
+                         
+                            //        //Ajax Request
+                            //        loadHttpRequest("POST", "/manage/editCouchingHubAsync", editCouchingHubCallback, JSON.stringify(data));
+                            //     }
+                            //});
+                         }
+                    });
+                }
+                if (ext == 'jpeg' || ext == 'jpg' || ext == 'png' || ext == 'PNG' || ext == 'JPG' || ext == 'JPEG' || ext == 'tiff' || ext == 'eps' || ext == 'raw') {
+                    
+                    file = $('#file')[0].files[0]
+                    formData.append('file', file);
+                    $.ajax({
+                        type: "POST",
+                        url: "/manage/uploadFile",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        cache: false,
+                        async: false,
+                        complete: function (res) {
+                            data.thumbnail = res.responseJSON;
+                            data.url = res.responseJSON;
+                            data.contentType = 0;
+
+                            //Ajax Request
+                            loadHttpRequest("POST", "/manage/editCouchingHub", editCouchingHubCallback, JSON.stringify(data));
+                         }
+                    });
+                }
+                }
+           }
+     }
+       function editCouchingHubCallback(response) {
+           Swal.fire({
+               title: 'Successfull',
+               text: 'Couching hub successfully updated.',
+               imageUrl: '/Images/Group 227317.png',
+               imageAlt: 'Custom image',
+               timer: 1500,
+               showCancelButton: false,
+               showConfirmButton: false
+           }).then(function () {
+                 $("#add_hub_modal").modal('hide');
+                 table.draw();
+           })
+       }
+
+     //Thumbnail Get Function
+     async function getThumbnailForVideo(videoUrl) {
+                    const video = document.createElement("video");
+                    const canvas = document.createElement("canvas");
+                    video.style.display = "none";
+                    canvas.style.display = "none";
+
+                    // Trigger video load
+                    await new Promise((resolve, reject) => {
+                        video.addEventListener("loadedmetadata", () => {
+                            video.width = video.videoWidth;
+                            video.height = video.videoHeight;
+                            canvas.width = video.videoWidth;
+                            canvas.height = video.videoHeight;
+                            // Seek the video to 25%
+                            video.currentTime = video.duration * 0.25;
+                        });
+                        video.addEventListener("seeked", () => resolve());
+                        video.src = videoUrl;
+                    });
+
+                    // Draw the thumbnailz
+                    canvas
+                        .getContext("2d")
+                        .drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+                    const imageUrl = canvas.toDataURL("image/png");
+                    return imageUrl;
+     }
+
+    
+     //Couching Hub Benifits
+       $('#couching_table tbody').on('click', '[class*=hubBenifits]', function () {
+          var id = $(this).attr("data-hubId");
+          loadHttpRequest("GET", `/manage/getHubBenifits?hubId=${id}`, getHubBenifitsCallBackHandler);
+       });
+
+       //handler ajax callback
+       function getHubBenifitsCallBackHandler(benifits) {
+            $("#benifitsDiv").html("");
+           if (benifits != null && benifits.length > 0){
+               $("#benifitsDiv").html("");
+               benifits.forEach(function (benifit) {
+                     $("#benifitsDiv").append(`<li>${benifit.name}</li>`);
+               });
+           }
+
+           $('#hub_benifit_modal').modal('show');
+       }
+   
+
+        //Purchased Users
+       $('#couching_table tbody').on('click', '[class*=hubPurchasedUsers]', function () {
+          var id = $(this).attr("data-hubId");
+          loadHttpRequest("GET", `/manage/getPurchasedUser?hubId=${id}`, getHubPurchasedUsersHandler);
+       });
+
+       //handler ajax callback
+       function getHubPurchasedUsersHandler(Users) {
+           $("#purchasingUserDiv").html("");
+           if (Users != null && Users.length > 0){
+               $("#purchasingUserDiv").html("");
+               Users.forEach(function (user) {
+                     $("#purchasingUserDiv").append(`<div class="col-md-6">
+                        <div class="d-flex">
+                            <img width="45" height="45" class="shadow-sm rounded" src="${user.profilePic}" />
+                            <div class="ml-2">
+                                <p class="my-0"><b>Name: </b>${user.name}</p>
+                                <p class="my-0"><b>Coupon: </b>${user.email}</p>
+                                <p class="my-0"><b>Price Paid: </b>${user.price}</p>
+                                <p class="my-0">${user.date}</p>
+                            </div>
+                        </div>
+                    </div>`);
+               });
+           }
+
+           $('#hub_purchased_users').modal('show');
+       }
+
+
+       //Couching Hub Detail
+       function hubInfo(hub, title, type, url) {
+             $('#imgVideoDiv').html("");
+          var description = $(hub).parent().find('input').val();
+          
+          $('#heading').text(title);
+          $('#detail').text(description);
+
+          if(type == 0){
+             $('#imgVideoDiv').append(`<img src="${url}" class="w-50"/>`);}
+          else if(type == 1){
+          $('#imgVideoDiv').append(`<video width="320" height="240" controls>
+                                  <source src="${url}" type="video/mp4">
+                                </video>`);}
+
+          $('#hub_detail').modal('show');
+       }
+
+</script>

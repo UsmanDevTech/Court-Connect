@@ -1,0 +1,126 @@
+﻿<style>
+    .nav-pills .nav-link {
+        color: #726c6c !important;
+    }
+
+        .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+            color: #6CBA9E !important;
+            background-color: #dee2e66b !important;
+            border-radius: 50px 0 0 50px !important;
+        }
+</style>
+<aside class="main-sidebar elevation-4" style="background:#fff;box-shadow:0 0px 0px rgb(0 0 0 / 5%), 0 10px 10px rgb(0 0 0 / 10%) !important">
+    <div class="sidebar">
+        <div class="user-panel text-center  mt-4">
+            <div class="image mb-2">
+                <img src="~/Logo/court-connect-logo.png" alt="SalesFox">
+            </div>
+            <hr />
+        </div>
+        <nav>
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-header montserrat-m nav-bar-title text-black">Main</li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/account/dashboard">
+                        <i class="fas fa-desktop mr-2"></i>
+                        <p class="montserrat-m">Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-header montserrat-m nav-bar-title text-black">Partners</li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/management/users">
+                        <i class="fas fa-users mr-2"></i>
+                        <p class="montserrat-m">Users</p>
+                    </a>
+                </li>
+
+                <li class="nav-header montserrat-m nav-bar-title  text-black">Attributes</li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/management/matches">
+                        <i class="fas fa-baseball-ball mr-2"></i>
+                        <p class="montserrat-m">Matches</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-medal mr-2"></i>
+                        <p>
+                            League
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/management/addLeague">
+                                <p class="montserrat-m">Add League</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/management/leagues">
+                                <p class="montserrat-m">League Information</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        <p>
+                            Couching Hub
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/management/category">
+                                <p class="montserrat-m">Category</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/management/couchingHub">
+                                <p class="montserrat-m">Couching Hub Detail</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/management/subscription">
+                        <i class="fas fa-baseball-ball mr-2"></i>
+                        <p class="montserrat-m">Subscription</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/management/Warning">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <p class="montserrat-m">Warnings</p>
+                    </a>
+                </li>
+
+                <li class="nav-header montserrat-m nav-bar-title  text-black">CMS</li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/setting/termAndConditions">
+                        <i class="fas fa-book mr-2"></i>
+                        <p class="montserrat-m">Terms</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/setting/privacyPolicy">
+                        <i class="fas fa-book mr-2"></i>
+                        <p class="montserrat-m">Privacy Policy</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/setting/about">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        <p class="montserrat-m">About Application</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

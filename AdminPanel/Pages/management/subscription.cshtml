@@ -1,0 +1,849 @@
+﻿@page
+@model AdminPanel.Pages.management.subscriptionModel
+
+
+<div class="container-fluid">
+    <div class="row mb-2 pt-4">
+        <div class="col-sm-6">
+            <h4><span id="pageTitleFilter"></span> Subscriptions</h4>
+        </div>
+        <div class="col-sm-6">
+            <div class="float-sm-right">
+                <button class="btn btn-primary" id="open_add_subscription_modal"><i class="fa fa-plus"></i> Add Subscription</button>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table w-100" id="subscription_table">
+                    <thead class="no-wrap">
+                        <tr>
+                            <th>Id</th>
+                            <th>Type</th>
+                            <th>Title</th>
+                            <th>Duration</th>
+                            <th>Actual Price</th>
+                            <th>Discounted Price</th>
+                            <th>Paid Content</th>
+                            <th>Free Content</th>
+                            <th>Score</th>
+                            <th>Review</th>
+                            <th>Match Balance</th>
+                            <th>Match Rating</th>
+                            <th>Total Ranked</th>
+                            <th>Total Unranked</th>
+                            <th>Cost Ranked</th>
+                            <th>Cost Unranked</th>
+                            <th>Created At</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="no-wrap">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="statusType" value="0" />
+
+<div class="modal" id="add_subscription_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h3 class="modal-title">Manage Subscription</h3>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body col-xs-12 col-md-12">
+                <div class="row">
+                    <form id="subscriptionform" class="row">
+                        <input id="id" hidden />
+                        <div class="form-group mb-3 col-md-6">
+                            <label for="Type">Subscription Type</label>
+                            <select id="subscriptionType" name="Type" class="form-control">
+                                <option value="0">Freemium Plan</option>
+                                <option value="1">Premium Plan</option>
+                                <option value="2">Vip Plan</option>
+                            </select>
+                            <span class="text-danger" id="subscriptionType_error"></span>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-6">
+                            <label for="Title">Title</label>
+                            <input id="title" name="Title" maxlength="30" type="text" class="form-control" />
+                            <span class="text-danger" id="title_error"></span>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="Price">Price</label>
+                            <input id="price" name="Price" min="0" value="0" onkeypress="return event.charCode != 45" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" class="form-control" />
+                            <span class="text-danger" id="price_error"></span>
+                        </div>
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="rankedMatchPrice">Ranked Match Price</label>
+                            <input id="rankedMatchPrice" name="rankedMatchPrice" value="0" min="0" onkeypress="return event.charCode != 45" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" class="form-control" />
+                            <span class="text-danger" id="rankedMatchPrice_error"></span>
+                        </div>
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="unrankedMatchPrice">Unranked Match Price</label>
+                            <input id="unrankedMatchPrice" name="unrankedMatchPrice" value="0" min="0" onkeypress="return event.charCode != 45" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" class="form-control" />
+                            <span class="text-danger" id="unrankedMatchPrice_error"></span>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="Discount">Discount in %</label>
+                            <input id="discount" name="Discount" value="0" min="0" max="99" onkeypress="return event.charCode != 45" oninput="javascript: if (this.value > 99) this.value = 99;" type="number" class="form-control" />
+                            <span class="text-danger" id="discount_error"></span>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="DurationType">Duration Type</label>
+                            <select id="durationType" name="DurationType" class="form-control">
+                                <option value="0">Days</option>
+                                <option value="1">Weeks</option>
+                                <option value="2">Months</option>
+                                <option value="3">Years</option>
+                            </select>
+                            <span class="text-danger" id="durationType_error"></span>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="UnlimitedRanked">Unlimited Ranked Matches</label><br>
+                            <input type="checkbox" id="unlimitedRanked" name="UnlimitedRanked">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="RankedMatches">Ranked Matches</label>
+                            <input id="rankedMatches" name="RankedMatches" value="0" min="0" onkeypress="return event.charCode != 45" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" class="form-control" />
+                            <span class="text-danger" id="ranked_matches_error"></span>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="UnlimitedUnranked">Unlimited Unranked Matches</label><br>
+                            <input type="checkbox" id="unlimitedUnranked" name="UnlimitedUnranked">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="UnrankedMatches">Unranked Matches</label>
+                            <input id="unrankedMatches" name="UnrankedMatches" value="0" min="0" onkeypress="return event.charCode != 45" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" class="form-control" />
+                            <span class="text-danger" id="unranked_matches_error"></span>
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="PaidContentAvailable">Paid Content Available</label><br>
+                            <input type="checkbox" id="paidContentAvailable" name="PaidContentAvailable">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="FreeContent">Free Content Available</label><br>
+                            <input type="checkbox" id="freeContentAvailable" name="FreeContent">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="ReviewAvailable">Review Available</label><br>
+                            <input type="checkbox" id="reviewAvailable" name="ReviewAvailable">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="ScoreAvailable">Score Available</label><br>
+                            <input type="checkbox" id="scoreAvailable" name="ScoreAvailable">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="MatchBalanceAvailable">Match Balance Available</label><br>
+                            <input type="checkbox" id="matchBalanceAvailable" name="MatchBalanceAvailable">
+                        </div>
+
+                        <div class="form-group mb-3 col-md-4">
+                            <label for="MatchRatingAvailable">Match Rating Available</label><br>
+                            <input type="checkbox" id="matchRatingAvailable" name="MatchRatingAvailable">
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer float-right">
+                <button id="subscriptionBtn" onclick="manageSubscription()" class="btn btn-primary">Create Subscription</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        var columns = [
+            {
+                "data": "data.id",
+                "name": "data.id"
+            },
+            {
+                "data": "data.subscriptionType",
+                "name": "data.subscriptionType",
+                "render": function(data, row) {
+                    if (data == 0)
+                        return '<span class="badge badge-primary">Freemium Plan</span>';
+                    else if (data == 1)
+                        return '<span class="badge badge-primary">Premium Plan</span>';
+                    else
+                        return '<span class="badge badge-primary">Vip Plan</span>';
+                }
+            },
+            {
+                "data": "data.title",
+                "name": "data.title",
+                "render": function(data, row) {
+                    return '<div class="datatableTdTitleTextWrapper">' + data + '</div>'
+                }
+            },
+            {
+                "data": "data.durationType",
+                "name": "data.durationType",
+                "render": function(data, row) {
+
+                    if (data == 0)
+                        return '<div>Day</div>';
+                    else if (data == 1)
+                        return '<div>Week</div>';
+                    else if (data == 2)
+                        return '<div>Month</div>';
+                    else
+                        return '<div>Year</div>';
+                }
+            },
+            {
+                "data": "data.price",
+                "name": "data.price",
+                "render": function(data, row) {
+                    return `<div>€${data}</div>`
+                }
+            },
+            {
+                "data": "data.priceAfterDiscount",
+                "name": "data.priceAfterDiscount",
+                "render": function(data, row) {
+                    return `<div>€${data}</div>`
+                }
+            },
+            {
+                "data": "data.isPaidCouchingContentAvailable",
+                "name": "data.isPaidCouchingContentAvailable",
+                "render": function(data, row) {
+                    if (data == true)
+                        return '<span class="badge badge-success">Available</span>';
+                    else
+                        return '<span class="badge badge-danger">Not Available</span>';
+                }
+            },
+            {
+                "data": "data.isFreeCouchingContentAvailable",
+                "name": "data.isFreeCouchingContentAvailable",
+                "render": function(data, row) {
+                    if (data == true)
+                        return '<span class="badge badge-success">Available</span>';
+                    else
+                        return '<span class="badge badge-danger">Not Available</span>';
+                }
+            },
+            {
+                "data": "data.isScoreAvailable",
+                "name": "data.isScoreAvailable",
+                "render": function(data, row) {
+                    if (data == true)
+                        return '<span class="badge badge-success">Available</span>';
+                    else
+                        return '<span class="badge badge-danger">Not Available</span>';
+                }
+            },
+            {
+                "data": "data.isReviewAvailable",
+                "name": "data.isReviewAvailable",
+                "render": function(data, row) {
+                    if (data == true)
+                        return '<span class="badge badge-success">Available</span>';
+                    else
+                        return '<span class="badge badge-danger">Not Available</span>';
+                }
+            },
+            {
+                "data": "data.isMatchBalanceAvailable",
+                "name": "data.isMatchBalanceAvailable",
+                "render": function(data, row) {
+                    if (data == true)
+                        return '<span class="badge badge-success">Available</span>';
+                    else
+                        return '<span class="badge badge-danger">Not Available</span>';
+                }
+            },
+            {
+                "data": "data.isRatingAvailable",
+                "name": "data.isRatingAvailable",
+                "render": function(data, row) {
+                    if (data == true)
+                        return '<span class="badge badge-success">Available</span>';
+                    else
+                        return '<span class="badge badge-danger">Not Available</span>';
+                }
+            },
+            {
+                "data": "data.freeRankedGames",
+                "name": "data.freeRankedGames",
+                "render": function(data, row, payload) {
+                    var ranked = payload.isFreeRankedGameUnlimited == true ? `Unlimited` : `${data}`;
+                    return `<div>${ranked}</div>`;
+                }
+            },
+            {
+                "data": "data.freeUnrankedGames",
+                "name": "data.freeUnrankedGames",
+                "render": function(data, row, payload) {
+                    var unranked = payload.isFreeUnrankedGameUnlimited == true ? `Unlimited` : `${data}`;
+                    return `<div>${unranked}</div>`;
+                }
+            },
+            {
+                "data": "data.costPerRankedGame",
+                "name": "data.costPerRankedGame",
+                "render": function(data, row, payload) {
+                    return `<div>${data}</div>`;
+                }
+            },
+            {
+                "data": "data.costPerUnrankedGame",
+                "name": "data.costPerUnrankedGame",
+                "render": function(data, row, payload) {
+                    return `<div>${data}</div>`;
+                }
+            },
+            {
+                "data": "createdAt",
+                "name": "createdAt",
+                "render": function(data, row) {
+
+                    return `<div>${data}</div>`;
+                }
+            },
+            {
+                "data": "data.deleted",
+                "name": "data.deleted",
+                "render": function(data, row) {
+                    if (data == true)
+                        return '<span class="badge badge-danger">Blocked</span>';
+                    else
+                        return '<span class="badge badge-success">Active</span>';
+                }
+            },
+            {
+                "data": "data.id",
+                "name": "data.id",
+                "render": function(data, row, payload) {
+                    var status = payload.data.deleted;
+
+                    if (status == false) {
+                        return `<a class="btn btn-sm btn-outline-primary" onclick="showEditSubscriptionModal(${data},'${payload.data.title}',
+                            ${payload.data.price},${payload.data.discount}
+                            ,${payload.data.durationType},${payload.data.subscriptionType},${payload.data.freeRankedGames},${payload.data.freeUnrankedGames}
+                            ,${payload.data.costPerRankedGame},${payload.data.costPerUnrankedGame}
+                            ,'${payload.data.isFreeRankedGameUnlimited}','${payload.data.isFreeUnrankedGameUnlimited}'
+                            ,'${payload.data.isPaidCouchingContentAvailable}','${payload.data.isFreeCouchingContentAvailable}'
+                            ,'${payload.data.isReviewAvailable}','${payload.data.isScoreAvailable}','${payload.data.isRatingAvailable}'
+                            ,'${payload.data.isMatchBalanceAvailable}')"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-sm btn-outline-danger ml-2" id="deleteSubscriptionBtn"><i class="fas fa-ban"></i></a>`;
+                    }
+                    else {
+                        return `<a class="btn btn-sm btn-outline-success" id="deleteSubscriptionBtn"><i class="fas fa-check-circle"></i></a>`;
+                    }
+                }
+            },
+
+        ];
+        var order = [[14, "desc"]];
+        var columnDefs = [{
+            "targets": [0],
+            "visible": false,
+            "searchable": false
+        }];
+        //Init Datatable
+        initDatatable('#subscription_table', '/manage/getPaginationData/4', '#statusType', '#pageTitleFilter', columns, order, columnDefs);
+    });
+
+
+    //Soft Delete Feature Handler
+    $('#subscription_table tbody').on('click', '[id*=deleteSubscriptionBtn]', function() {
+        //Get Row Data
+        var data = table.row($(this).parents('tr')).data();
+        var title, confirmButtonText;
+
+        var statusCheck = data.data.deleted;
+
+        if (statusCheck) {
+            title = 'Are you sure, you want to unblock this subscription?';
+            confirmButtonText = 'Yes, Unblock it!';
+        }
+        else {
+            title = 'Are you sure, you want to block this subscription?';
+            confirmButtonText = 'Yes, Block it!';
+        }
+
+        swal.fire({
+            title: title,
+            icon: 'warning',
+            allowOutsideClick: false,
+            showCloseButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: confirmButtonText
+        }).then((result) => {
+            if (result.isConfirmed) {
+                if (statusCheck) {
+                    loadHttpRequest("GET", "/manage/softDeleteSubscription?id=" + data.data.id + "&isDeleted=" + false, softDeleteCallback);
+                }
+                else {
+                    loadHttpRequest("GET", "/manage/softDeleteSubscription?id=" + data.data.id + "&isDeleted=" + true, softDeleteCallback);
+                }
+            }
+        });
+    });
+
+    function softDeleteCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Status updated.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function() {
+            table.draw();
+        })
+    }
+
+
+    //Create Subscription
+    $('#open_add_subscription_modal').click(function() {
+        $('#title').val();
+        $("#title_error").html('');
+        $('#price').val(0);
+        $("#price_error").html('');
+        $('#discount').val(0);
+        $("#discount_error").html('');
+        $('#rankedMatches').val(0);
+        $("#ranked_matches_error").html('');
+        $('#unrankedMatches').val(0);
+        $("#unranked_matches_error").html('');
+        $('#rankedMatchPrice').val(0);
+        $("#rankedMatchPrice_error").html('');
+        $('#unrankedMatchPrice').val(0);
+        $("#unrankedMatchPrice_error").html('');
+
+        document.getElementById('durationType').disabled = false;
+        document.getElementById('subscriptionType').disabled = false;
+        document.getElementById("unlimitedRanked").checked = false;
+        document.getElementById("unlimitedUnranked").checked = false;
+        document.getElementById("paidContentAvailable").checked = false;
+        document.getElementById("freeContentAvailable").checked = false;
+        document.getElementById("reviewAvailable").checked = false;
+        document.getElementById("scoreAvailable").checked = false;
+        document.getElementById("matchRatingAvailable").checked = false;
+        document.getElementById("matchBalanceAvailable").checked = false;
+
+        $('#key').val("");
+        $("#add_subscription_modal").modal('show');
+    });
+    function manageSubscription() {
+        var id = $('#id').val();
+        if (CheckNullUndefined(id)) {
+            createSubscription();
+        }
+        else {
+            editSubscription();
+        }
+    }
+    function createSubscription() {
+       
+        var title = $('#title').val();
+        var price = $('#price').val();
+        var discount = $('#discount').val();
+        var rankedMatches = $('#rankedMatches').val();
+        var unrankedMatches = $('#unrankedMatches').val();
+
+        var costPerRankedGame = $('#rankedMatchPrice').val();
+        var costPerUnrankedGame = $('#unrankedMatchPrice').val();
+
+        var duration = $('#durationType').val();
+        var subscriptionType = $('#subscriptionType').val();
+
+        var unlimitedRanked = $('#unlimitedRanked').is(':checked');
+        var unlimitedUnranked = $('#unlimitedUnranked').is(':checked');
+        var paidContent = $('#paidContentAvailable').is(':checked');
+        var freeContent = $('#freeContentAvailable').is(':checked');
+        var reviewAvailable = $('#reviewAvailable').is(':checked');
+        var scoreAvailable = $('#scoreAvailable').is(':checked');
+        var matchRatingAvailable = $('#matchRatingAvailable').is(':checked');
+        var matchBalanceAvailable = $('#matchBalanceAvailable').is(':checked');
+
+        var executeHttpRequest = true;
+
+        if (CheckNullUndefined(title)) {
+            executeHttpRequest = false;
+            $("#title_error").html('Title is required.');
+        }
+        if (CheckNullUndefined(price) || parseFloat(price) == 0) {
+            executeHttpRequest = false;
+            $("#price_error").html('Price is required.');
+        }
+        if (CheckNullUndefined(discount)) {
+            executeHttpRequest = false;
+            $("#discount_error").html('Discount must have min value 0.');
+        }
+        if (CheckNullUndefined(unrankedMatches)) {
+            executeHttpRequest = false;
+            $("#unranked_matches_error").html('Unranked matches must have min value 0.');
+        }
+        if (CheckNullUndefined(rankedMatches)) {
+            executeHttpRequest = false;
+            $("#ranked_matches_error").html('Ranked macthes must have min value 0.');
+        }
+        if (CheckNullUndefined(costPerRankedGame)) {
+            executeHttpRequest = false;
+            $("#rankedMatchPrice_error").html('Price must have min value 0.');
+        }
+        if (!unlimitedRanked && (parseFloat(costPerRankedGame) == 0)) {
+            executeHttpRequest = false;
+            $("#rankedMatchPrice_error").html('Price per ranked game is required.');
+        }
+        if (CheckNullUndefined(costPerUnrankedGame)) {
+            executeHttpRequest = false;
+            $("#unrankedMatchPrice_error").html('Price must have min value 0.');
+        }
+        if (!unlimitedUnranked && (parseFloat(costPerUnrankedGame) == 0)) {
+            executeHttpRequest = false;
+            $("#unrankedMatchPrice_error").html('Price per unranked game is required.');
+        }
+
+        if (executeHttpRequest == true) {
+            $.ajax({
+                type: 'GET',
+                url: '/manage/subscription/addSubscription?price=' + price + '&planname=' + title + '&durationtype=' + duration,
+                dataType: "json",
+                success: function(data) {
+                    console.log(data);
+                    var data = JSON.parse(JSON.stringify(data));
+                    if (data != null) {
+                        var productId = data.productId;
+                        var priceId = data.priceId;
+                        //Data object
+                        var data = {};
+                        data.title = title;
+                        data.price = parseFloat(price);
+                        data.priceAfterDiscount = ;
+                        data.isDiscountAvailable = ;
+                        data.discount = parseFloat(discount);
+                        data.subscriptionType = parseInt(subscriptionType);
+                        data.durationType = parseInt(duration);
+
+                        data.rankedMatches = rankedMatches;
+                        data.unrankedMatches = unrankedMatches;
+                        data.costPerRankedGame = parseFloat(costPerRankedGame);
+                        data.costPerUnrankedGame = parseFloat(costPerUnrankedGame);
+                        data.unlimitedRanked = unlimitedRanked;
+                        data.unlimitedUnranked = unlimitedUnranked;
+                        data.paidContent = paidContent;
+                        data.freeContent = freeContent;
+                        data.reviewAvailable = reviewAvailable;
+                        data.scoreAvailable = scoreAvailable;
+                        data.matchRatingAvailable = matchRatingAvailable;
+                        data.matchBalanceAvailable = matchBalanceAvailable;
+                        data.productId = productId;
+                        data.priceId = priceId;
+                        //Ajax Request
+                        loadHttpRequest("POST", "/manage/createSubscription", addSubscriptionCallback, JSON.stringify(data));
+                    }
+                    else {
+                        //Data object
+                        var data = {};
+                        data.title = title;
+                        data.price = parseFloat(price);
+                        data.discount = parseFloat(discount);
+                        data.durationType = parseInt(duration);
+                        data.subscriptionType = parseInt(subscriptionType);
+                        data.rankedMatches = rankedMatches;
+                        data.unrankedMatches = unrankedMatches;
+                        data.costPerRankedGame = parseFloat(costPerRankedGame);
+                        data.costPerUnrankedGame = parseFloat(costPerUnrankedGame);
+                        data.unlimitedRanked = unlimitedRanked;
+                        data.unlimitedUnranked = unlimitedUnranked;
+                        data.paidContent = paidContent;
+                        data.freeContent = freeContent;
+                        data.reviewAvailable = reviewAvailable;
+                        data.scoreAvailable = scoreAvailable;
+                        data.matchRatingAvailable = matchRatingAvailable;
+                        data.matchBalanceAvailable = matchBalanceAvailable;
+                        data.productId = null;
+                        data.priceId = null;
+                        //Ajax Request
+                        loadHttpRequest("POST", "/manage/createSubscription", addSubscriptionCallback, JSON.stringify(data));
+                    }
+                }
+            })
+
+        }
+    }
+    function addSubscriptionCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Subscription successfully added.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function() {
+            $("#add_subscription_modal").modal('hide');
+            table.draw();
+        })
+    }
+
+    //Edit Subscription
+    function showEditSubscriptionModal(id, title, price, discount, durationType, subscriptionType, rankedMatches, unrankedMatches, rankedMatchPrice
+        , unrankedMatchPrice, unlimitedRanked, unlimitedUnranked, paidContent, freeContent, reviewAvailable,
+        scoreAvailable, matchRatingAvailable, matchBalanceAvailable) {
+
+        $('#title').val(title);
+        $("#title_error").html('');
+        $('#price').val(price);
+        $("#price_error").html('');
+        $('#discount').val(discount);
+        $("#discount_error").html('');
+        $('#rankedMatches').val(rankedMatches);
+        $("#ranked_matches_error").html('');
+        $('#unrankedMatches').val(unrankedMatches);
+        $("#unranked_matches_error").html('');
+        $('#rankedMatchPrice').val(rankedMatchPrice);
+        $("#rankedMatchPrice_error").html('');
+        $('#unrankedMatchPrice').val(unrankedMatchPrice);
+        $("#unrankedMatchPrice_error").html('');
+
+        $(`#durationType option[value=${durationType}]`).attr('selected', 'selected');
+        $("#durationType").val(durationType).change();
+
+        $(`#subscriptionType option[value=${subscriptionType}]`).attr('selected', 'selected');
+        $("#subscriptionType").val(subscriptionType).change();
+
+
+        document.getElementById('durationType').disabled = true;
+        document.getElementById('subscriptionType').disabled = true;
+
+        if (unlimitedRanked == 'true')
+            document.getElementById("unlimitedRanked").checked = true;
+        else
+            document.getElementById("unlimitedRanked").checked = false;
+
+        if (unlimitedUnranked == 'true')
+            document.getElementById("unlimitedUnranked").checked = true;
+        else
+            document.getElementById("unlimitedUnranked").checked = false;
+
+        if (paidContent == 'true')
+            document.getElementById("paidContentAvailable").checked = true;
+        else
+            document.getElementById("paidContentAvailable").checked = false;
+
+        if (freeContent == 'true')
+            document.getElementById("freeContentAvailable").checked = true;
+        else
+            document.getElementById("freeContentAvailable").checked = false;
+
+        if (reviewAvailable == 'true')
+            document.getElementById("reviewAvailable").checked = true;
+        else
+            document.getElementById("reviewAvailable").checked = false;
+
+        if (scoreAvailable == 'true')
+            document.getElementById("scoreAvailable").checked = true;
+        else
+            document.getElementById("scoreAvailable").checked = false;
+
+        if (matchRatingAvailable == 'true')
+            document.getElementById("matchRatingAvailable").checked = true;
+        else
+            document.getElementById("matchRatingAvailable").checked = false;
+
+        if (matchBalanceAvailable == 'true')
+            document.getElementById("matchBalanceAvailable").checked = true;
+        else
+            document.getElementById("matchBalanceAvailable").checked = false;
+
+        $('#id').val(id);
+        $("#add_subscription_modal").modal("show");
+    }
+
+    function editSubscription() {
+        var title = $('#title').val();
+        var price = $('#price').val();
+        var discount = $('#discount').val();
+        var rankedMatches = $('#rankedMatches').val();
+        var unrankedMatches = $('#unrankedMatches').val();
+
+        var costPerRankedGame = $('#rankedMatchPrice').val();
+        var costPerUnrankedGame = $('#unrankedMatchPrice').val();
+
+        var unlimitedRanked = $('#unlimitedRanked').is(':checked');
+        var unlimitedUnranked = $('#unlimitedUnranked').is(':checked');
+        var paidContent = $('#paidContentAvailable').is(':checked');
+        var freeContent = $('#freeContentAvailable').is(':checked');
+        var reviewAvailable = $('#reviewAvailable').is(':checked');
+        var scoreAvailable = $('#scoreAvailable').is(':checked');
+        var matchRatingAvailable = $('#matchRatingAvailable').is(':checked');
+        var matchBalanceAvailable = $('#matchBalanceAvailable').is(':checked');
+
+        var id = $('#id').val();
+        var executeHttpRequest = true;
+
+        if (CheckNullUndefined(title)) {
+            executeHttpRequest = false;
+            $("#title_error").html('Title is required.');
+        }
+        if (CheckNullUndefined(price) || parseFloat(price) == 0) {
+            executeHttpRequest = false;
+            $("#price_error").html('Price is required.');
+        }
+        if (CheckNullUndefined(discount)) {
+            executeHttpRequest = false;
+            $("#discount_error").html('Discount must have min value 0.');
+        }
+        if (CheckNullUndefined(unrankedMatches)) {
+            executeHttpRequest = false;
+            $("#unranked_matches_error").html('Unranked matches must have min value 0.');
+        }
+        if (CheckNullUndefined(rankedMatches)) {
+            executeHttpRequest = false;
+            $("#ranked_matches_error").html('Ranked macthes must have min value 0.');
+        }
+        if (CheckNullUndefined(costPerRankedGame)) {
+            executeHttpRequest = false;
+            $("#rankedMatchPrice_error").html('Price must have min value 0.');
+        }
+        if (!unlimitedRanked && (parseFloat(costPerRankedGame) == 0)) {
+            executeHttpRequest = false;
+            $("#rankedMatchPrice_error").html('Price per ranked game is required.');
+        }
+        if (CheckNullUndefined(costPerUnrankedGame)) {
+            executeHttpRequest = false;
+            $("#unrankedMatchPrice_error").html('Price must have min value 0.');
+        }
+        if (!unlimitedUnranked && (parseFloat(costPerUnrankedGame) == 0)) {
+            executeHttpRequest = false;
+            $("#unrankedMatchPrice_error").html('Price per unranked game is required.');
+        }
+
+        if (executeHttpRequest == true) {
+
+            $.ajax({
+                type: 'GET',
+                url: '/manage/subscription/updateSubscription?packageId=' + id + '&planname=' + title + '&newprice=' + price,
+                dataType: "json",
+                success: function(data) {
+                    console.log(data);
+                    var data = JSON.parse(JSON.stringify(data));
+                    if (data != null) {
+                        var productId = data.productId;
+                        var priceId = data.priceId;
+                        //Data object
+                        var data = {};
+                        data.Id = id;
+                        data.title = title;
+                        data.price = parseFloat(price);
+                        data.discount = parseFloat(discount);
+                        data.rankedMatches = rankedMatches;
+                        data.unrankedMatches = unrankedMatches;
+                        data.costPerRankedGame = parseFloat(costPerRankedGame);
+                        data.costPerUnrankedGame = parseFloat(costPerUnrankedGame);
+                        data.unlimitedRanked = unlimitedRanked;
+                        data.unlimitedUnranked = unlimitedUnranked;
+                        data.paidContent = paidContent;
+                        data.freeContent = freeContent;
+                        data.reviewAvailable = reviewAvailable;
+                        data.scoreAvailable = scoreAvailable;
+                        data.matchRatingAvailable = matchRatingAvailable;
+                        data.matchBalanceAvailable = matchBalanceAvailable;
+
+                        //Ajax Request
+                        loadHttpRequest("POST", "/manage/editSubscription", editSubscriptionCallback, JSON.stringify(data));
+                    }
+                    else {
+                        //Data object
+                        var data = {};
+                        data.title = title;
+                        data.price = parseFloat(price);
+                        data.discount = parseFloat(discount);
+                        data.durationType = parseInt(duration);
+                        data.subscriptionType = parseInt(subscriptionType);
+                        data.rankedMatches = rankedMatches;
+                        data.unrankedMatches = unrankedMatches;
+                        data.costPerRankedGame = parseFloat(costPerRankedGame);
+                        data.costPerUnrankedGame = parseFloat(costPerUnrankedGame);
+                        data.unlimitedRanked = unlimitedRanked;
+                        data.unlimitedUnranked = unlimitedUnranked;
+                        data.paidContent = paidContent;
+                        data.freeContent = freeContent;
+                        data.reviewAvailable = reviewAvailable;
+                        data.scoreAvailable = scoreAvailable;
+                        data.matchRatingAvailable = matchRatingAvailable;
+                        data.matchBalanceAvailable = matchBalanceAvailable;
+                        data.productId = null;
+                        data.priceId = null;
+                        //Ajax Request
+                        //Data object
+                        var data = {};
+                        data.id = id;
+                        data.title = title;
+                        data.price = parseFloat(price);
+                        data.discount = parseFloat(discount);
+                        data.rankedMatches = rankedMatches;
+                        data.unrankedMatches = unrankedMatches;
+                        data.costPerRankedGame = parseFloat(costPerRankedGame);
+                        data.costPerUnrankedGame = parseFloat(costPerUnrankedGame);
+                        data.unlimitedRanked = unlimitedRanked;
+                        data.unlimitedUnranked = unlimitedUnranked;
+                        data.paidContent = paidContent;
+                        data.freeContent = freeContent;
+                        data.reviewAvailable = reviewAvailable;
+                        data.scoreAvailable = scoreAvailable;
+                        data.matchRatingAvailable = matchRatingAvailable;
+                        data.matchBalanceAvailable = matchBalanceAvailable;
+
+                        //Ajax Request
+                        loadHttpRequest("POST", "/manage/editSubscription", editSubscriptionCallback, JSON.stringify(data));
+                    }
+                }
+            })
+        }
+    }
+
+    function editSubscriptionCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Subscription successfully updated.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function() {
+            $("#add_subscription_modal").modal('hide');
+            table.draw();
+        })
+    }
+</script>

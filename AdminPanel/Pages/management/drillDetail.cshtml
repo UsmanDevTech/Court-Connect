@@ -1,0 +1,313 @@
+﻿@page "{userId}"
+@model AdminPanel.Pages.management.drillDetailModel
+
+<style>
+    .w-120 {
+        width: 120px !important;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row mb-2 pt-4">
+        <div class="col-12">
+            <h4><span id="pageTitleFilter"></span> Drills</h4>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table w-100" id="drill_detail_table">
+                    <thead class="no-wrap">
+                        <tr>
+                            <th>Id</th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Name</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Drill Per Week</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Qty of Situations</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Score Modal</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Language</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Total Members</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Status</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Date</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="statusType" value="0" />
+@*Drill Situation Detail Modal*@
+<div class="modal fade" id="drill_situation_detail_modal" aria-modal="true" data-backdrop="static" data-keyboard="false"  role="dialog">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Drill Situations</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12" id="drill_detail">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Drill Members Modal*@
+<div class="modal fade" id="drill_members_modal" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Drill Members</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="drill_members">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+          $(function () {
+
+
+
+              var columns = [
+              {
+                  "data": "data.id",
+                  "name": "data.id"
+              },
+              {
+                  "data": "data.title",
+                  "name": "data.title",
+                  "render": function (data, row, payload) {
+                          return `<a class="text-decoration-underline cursor-pointer drillInfo" data-drillId="${payload.data.id}">${data}</a>`
+                  }
+              },
+              {
+                  "data": "data.drillPerWeek",
+                  "name": "data.drillPerWeek",
+                  "render": function (data, row) {
+                          return '<div class="datatableTdTitleTextWrapper"><span>' + data + ' </span></div>'
+                  }
+              },
+              {
+                  "data": "data.quantityOfSituations",
+                  "name": "data.quantityOfSituations",
+                  "render": function (data, row) {
+                          return '<div class="datatableTdTitleTextWrapper"><span>' + data + ' </span></div>'
+                  }
+              },
+              {
+                  "data": "data.scoreModal",
+                  "name": "data.scoreModal",
+                  "render": function (data, row) {
+
+                      if(data == 0)
+                          return '<div class="datatableTdTitleTextWrapper"><span>Score + Feedback</span></div>'
+                      else
+                           return '<div class="datatableTdTitleTextWrapper"><span>Feedback</span></div>'
+
+                  }
+              },
+                {
+                  "data": "data.language",
+                  "name": "data.language",
+                  "render": function (data, row) {
+                          return '<div class="datatableTdTitleTextWrapper"><span>' + data + ' </span></div>'
+                  }
+              },
+                 {
+                  "data": "data.totalListeners",
+                  "name": "data.totalListeners",
+                  "render": function (data, row, payload) {
+                          return '<a class="text-decoration-underline cursor-pointer drillMembers" data-drillId="'+payload.data.id+'">' + data + '</a><i class="fas fa-eye float-right"></i>'
+                  }
+              },
+               {
+                  "data": "data.status",
+                  "name": "data.status",
+                  "render": function (data, row) {
+
+                      if(data == 0)
+                          return '<div class="datatableTdTitleTextWrapper"><span class="badge badge-success text-white">Active</span></div>'
+                      else if(data == 1)
+                           return '<div class="datatableTdTitleTextWrapper"><span class="badge badge-primary text-white">Inactive</span></div>'
+                    else if(data == 2)
+                           return '<div class="datatableTdTitleTextWrapper"><span class="badge btn-warning text-white">Draft</span></div>'
+                    else if(data == 4)
+                           return '<div class="datatableTdTitleTextWrapper"><span class="badge badge-danger text-white">Expired</span></div>'
+
+                  }
+              },
+              {
+                  "data": "createdAt",
+                  "name": "createdAt",
+                   "render": function (data, row, payload) {
+                      return '<div class="datatableTdTextWrapper">' + payload.data.createdAt + ' -  ' + payload.data.expiryDate + '</div>'
+                  }
+              },
+          ];
+          var order = [[8, "desc"]];
+          var columnDefs = [{
+              "targets": [0],
+              "visible": false,
+              "searchable": false
+          }];
+          //Init Datatable
+          initDrillDatatable('#drill_detail_table', '/manage/getPaginationDataDetail/@Model.userId/2', '#statusType', '#pageTitleFilter', columns, order, columnDefs);
+      });
+
+
+    $('#drill_detail_table tbody').on('click', '[class*=detail]', function () {
+       //Get Row Data
+         var detail = $(this).attr("data-detail");
+         $('#detail').text(detail);
+         $('#course_detail_modal').modal('show');
+    });
+
+    //Drill situation detail
+     $('#drill_detail_table tbody').on('click', '[class*=drillInfo]', function () {
+        var drillId = $(this).attr("data-drillId");
+        loadHttpRequest("GET", `/manage/getDrillSituationDetail?drillId=${drillId}`, getDrillDetailCallBackHandler);
+     });
+
+     //handler ajax callback
+     function getDrillDetailCallBackHandler(drill) {
+        $("#drill_detail").html('');
+
+         if (drill != null && drill.length > 0){
+             drill.forEach(function (situation) {
+                 var member = '';
+
+                 if(situation.members != null && situation.members.length > 0){
+                     for(var i = 0; i < situation.members.length; i++)
+                     {
+                         var reactonContent = '';
+
+                         if(situation.members[i].situations != null && situation.members[i].situations.length > 0){
+                             for(var j = 0; j < situation.members[i].situations.length; j++)
+                             {
+                                 var feedback = '<label>No Feedback</label>';
+                                 if(situation.members[i].situations[j].feedbackAudio != null && situation.members[i].situations[j].feedbackAudio != ""){
+                                     feedback = '<div class="d-flex flex-column"><label>Feedback</label><audio src="'+situation.members[i].situations[j].feedbackAudio+'" class="w-120" onplay="stopAudio(this)" type="audio/x-m4a" controls></audio></div>';
+                                 }
+
+                                 reactonContent +='<div class="col-md-12 col-sm-6 col-12">'
+                                  +'<div class="d-md-flex flex-row">'
+                                 +'<div class="d-flex flex-column"><label>Situation</label><audio src="'+situation.members[i].situations[j].audio+'" class="w-120" onplay="stopAudio(this)"  type="audio/x-m4a" controls></audio></div>'
+                                 +'<div class="d-flex flex-column"><label>Reaction</label><audio src="'+situation.members[i].situations[j].reaction+'" class="w-120" onplay="stopAudio(this)" type="audio/x-m4a" controls></audio></div>'+ feedback+'<div class="d-flex flex-column ml-auto"><label>Score</label><span class="text-success">'+situation.members[i].situations[j].feedbackScore+'</span></div></div>'
+                                 +'<hr></div>';
+                             }
+                         }
+
+                         member += '<div class="col-xl-6 rounded shadow-sm py-2">'
+                         +'<button type="button" class="btn btn-primary w-100 text-left" data-toggle="collapse" data-target="#member'+situation.id+''+situation.members[i].memberId+'">'
+                         +'<div><img src="'+situation.members[i].memberProfilePicture+'" class="rounded" width="35" height="35" /><span class="ml-2">'+situation.members[i].memberName+'</span><p class="my-0">'+situation.members[i].memberEmail+'</p></div></button>'
+                         +'<div id="member'+situation.id+''+situation.members[i].memberId+'" class="collapse"><div class="row">'+reactonContent+'</div></div></div>'
+                     }
+                 }
+                 else{
+                     member = '<p class="my-1 ml-2">No reaction found</p>'
+                 }
+
+                 $("#drill_detail").append(`<div class="col-12 rounded shadow-sm py-2">
+                        <button type="button" class="btn btn-primary w-100 text-left" data-toggle="collapse" data-target="#situation${situation.id}">
+                            <div class="d-md-flex flex-row">
+                            <div><p class="my-0">${situation.title}</p><p class="my-0">${situation.category}</p><audio src="${situation.audio}" onplay="stopAudio(this)" type="audio/x-m4a" controls></audio></div>
+                            <span class="ml-auto badge badge-success" style="height: fit-content">${situation.isCompulsory}</span>
+                            </div>
+                        </button>
+
+                        <div id="situation${situation.id}" class="collapse">
+                         <div class="row">${member}</div>
+                        </div>
+                 </div>`);
+
+
+
+             });
+         }
+         else{
+               $("#drill_detail").append(`<div class="col-12 my-2"><h4>No drill situation found</h4></div>`);
+         }
+
+         $("#drill_situation_detail_modal").modal('show');
+
+     }
+   
+     //Drill Members detail
+     $('#drill_detail_table tbody').on('click', '[class*=drillMembers]', function () {
+        var drillId = $(this).attr("data-drillId");
+       loadHttpRequest("GET", `/manage/getTeamDetail?id=${drillId}&type=1`, getDrillMembersCallBackHandler);
+     });
+
+     //handler ajax callback
+     function getDrillMembersCallBackHandler(team) {
+        $("#drill_members").html('');
+
+         if (team.listeners != null && team.listeners.length > 0){
+             team.listeners.forEach(function (member) {
+                var imageUrl = "";
+                if (CheckNullUndefined(member.profileImageUrl)) {
+                   imageUrl = "/content/dist/img/no-image-available.png";
+                }
+                else {
+                   imageUrl = member.profileImageUrl;
+                }
+
+                $("#drill_members").append(`<div class="col-md-4">
+                       <div class="user-block" style="float: none!important;">
+                            <img class="img-circle" src = "${imageUrl}">
+                            <span class="username"><a class="table-link" id="linkMakerDetails"> ${member.name}</a></span>
+                            <span class="description"><i class="far fa-id-badge"></i> ${member.uniqueCode} </span>
+                       </div>
+                </div>`);
+             });
+         }
+         else{
+               $("#drill_members").append(`<div class="col-12 my-2"><label>No drill member found</label></div>`);
+         }
+
+         $("#drill_members_modal").modal('show');
+     }
+
+     //Audio stop 
+     function stopAudio(t) {
+          $('audio').not(t).each(function (index, audio) {
+                audio.pause();
+                audio.currentTime = 0;
+          });
+     }
+
+     $(".close").click(function() {
+       $('audio').each(function (index, audio) {
+                audio.pause();
+                audio.currentTime = 0;
+       });
+     });
+</script>

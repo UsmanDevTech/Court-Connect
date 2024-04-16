@@ -1,0 +1,580 @@
+﻿@page
+@model AdminPanel.Pages.setting.aboutModel
+
+<style>
+    .w-33 {
+        width: 33.35px !important;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <div class="row w-100">
+                        <div class="col-sm-4 col-12">
+                            <button class="btn btn-primary shadow-sm text-white" id="open_add_social_link_modal">
+                                <i class="fa fa-plus-circle"></i> Add Socail Link
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table w-100" id="social_link_table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Icon</th>
+                                    <th>Value</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><div>@Model.content.website.name</div></td>
+                                    <td><a><img src="@Model.content.website.iconUrl" width="35" height="35"></img></a></td>
+                                    <td><div>@Model.content.website.value</div></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-primary w-33" onclick="showEditSocailLinkModal('@Model.content.website.id','@Model.content.website.name','@Model.content.website.value')"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                                @foreach (var item in Model.content.contactUs)
+                                {
+                                    <tr>
+                                        <td><div>@item.name</div></td>
+                                        <td><a><img src="@item.iconUrl" width="35" height="35"></img></a></td>
+                                        <td><div>@item.value</div></td>
+                                        <td>
+                                            <a class="btn btn-sm btn-outline-primary w-33" onclick="showEditSocailLinkModal('@item.id','@item.name','@item.value')"><i class="fas fa-edit"></i></a>
+                                            <a class="btn btn-sm btn-outline-danger w-33" onclick="deleteRecord('@item.id')"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <div class="row w-100">
+                        <div class="col-sm-4 col-12">
+                            <button class="btn btn-primary shadow-sm text-white" id="open_add_faq_modal">
+                                <i class="fa fa-plus-circle"></i> Add Q&A
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table w-100" id="question_table">
+                            <thead>
+                                <tr>
+                                    <th>Q&A</th>
+                                    <th>Created At</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.content.faq)
+                                {
+                                    <tr>
+                                        <td class="align-middle"><a class="btn btn-primary waves-effect m-r-20 doc" data-answer="@item.value" data-question="@item.name" title="View Questions"><i class="far fa-question-circle text-white cursor-pointer"></i></a></td>
+                                        <td class="align-middle">@item.iconUrl</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-outline-primary w-33" onclick="showEditQuestionModal('@item.id', '@item.name', '@item.value')"><i class="fas fa-edit"></i></a>
+                                            <a class="btn btn-sm btn-outline-danger w-33" onclick="deleteRecord('@item.id')"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@*Add social icon*@
+<div class="modal fade" id="info_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="socialId" />
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Icon</label>
+                            <input type="file" class="form-control rounded-0" id="icon" accept="image/*">
+                            <span class="text-danger" id="icon_error"></span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" value="" class="form-control" id="name">
+                            <span class="text-danger" id="name_error"></span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Value</label>
+                            <input type="text" value="" class="form-control" id="value">
+                            <span class="text-danger" id="value_error"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-danger ml-auto" data-dismiss="modal">Close</a>
+                <button type="button" onclick="manageSocialLink()" class="btn btn-primary text-white">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Add question*@
+<div class="modal fade" id="add_question" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Question</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="aboutapp">
+                    <input type="hidden" id="faqId" />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Question</label>
+                                <input type="text" class="form-control" id="question" name="question">
+                                <span class="text-danger" id="question_error"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <div class="form-group">
+                                <label>Answer</label>
+                                <textarea rows="3" class="form-control" id="answer"></textarea>
+                                <span class="text-danger" id="answer_error"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-danger ml-auto" data-dismiss="modal">Close</a>
+                <button type="button" onclick="manageQuestionAnswer()" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Show question and answer*@
+<div class="modal fade" id="detail" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="title">Question & Answer</h4>
+            </div>
+            <div class="modal-body">
+                <label>Question</label>
+                <p id="qus"></p>
+
+                <label>Answer</label>
+                <textarea rows="3" class="border-0 w-100" style="outline-none" id="ans"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        $('#social_link_table').DataTable();
+        $('#question_tables').DataTable();
+    })
+
+    //Faq start
+    $('#open_add_social_link_modal').click(function () {
+        $('#name').val("");
+        $("#name_error").html('');
+
+        $('#value').val("");
+        $("#value_error").html('');
+        
+        $("#icon").val('');
+        $("#icon_error").html('');
+
+        $('#socialId').val("");
+        $("#info_modal").modal('show');
+    });
+
+    function showEditQuestionModal(id, question, answer){
+        $('#question').val(question);
+        $("#question_error").html('');
+
+        $('#answer').val(answer);
+        $("#answer_error").html('');
+
+        $('#faqId').val(id);
+
+        $("#add_question").modal("show");
+    }
+
+    function manageQuestionAnswer(){
+        var id= $('#faqId').val();
+        if(CheckNullUndefined(id)){
+            addFaq();
+        }
+        else{
+            editFaq();
+        }
+    }
+    //Add faq
+    function addFaq() {
+
+        var question = $('#question').val();
+        var answer = $('#answer').val();
+
+        var executeHttpRequest = true;
+        if (question.trim() == "") {
+            executeHttpRequest = false;
+            $("#question_error").html('Question is required.');
+        }
+        else {
+            $("#question_error").html('');
+        }
+        if (answer.trim() == "") {
+            executeHttpRequest = false;
+            $("#answer_error").html('Answer is required');
+        }
+        else {
+            $("#answer_error").html('');
+        }
+
+        if (executeHttpRequest === true) {
+            //Ajax Call
+            var data = {};
+            data.type = 3;
+            data.name = question;
+            data.value = answer;
+            //Ajax Request
+            loadHttpRequest("POST", "/manage/addAppContent", addFaqCallback, JSON.stringify(data));
+        }
+    }
+    function addFaqCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Successfully added.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function () {
+            $("#add_question").modal('hide');
+            location.reload();
+        })
+    }
+    //Edit faq
+    function editFaq() {
+
+        var question = $('#question').val();
+        var answer = $('#answer').val();
+        var id = $('#faqId').val();
+
+        var executeHttpRequest = true;
+        if (question.trim() == "") {
+            executeHttpRequest = false;
+            $("#question_error").html('Question is required.');
+        }
+        else {
+            $("#question_error").html('');
+        }
+        if (answer.trim() == "") {
+            executeHttpRequest = false;
+            $("#answer_error").html('Answer is required');
+        }
+        else {
+            $("#answer_error").html('');
+        }
+
+        if (executeHttpRequest === true) {
+            //Ajax Call
+            var data = {};
+            data.id = id,
+            data.name = question;
+            data.value = answer;
+            //Ajax Request
+            loadHttpRequest("POST", "/manage/editAppContent", editFaqCallback, JSON.stringify(data));
+        }
+    }
+    function editFaqCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Successfully updated.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function () {
+            $("#add_question").modal('hide');
+            location.reload();
+        })
+    }
+    //Faq end
+
+    //Scoial link start
+    $('#open_add_faq_modal').click(function () {
+        $('#name').val("");
+        $("#name_error").html('');
+
+        $('#value').val("");
+        $("#value_error").html('');
+
+        $('#faqId').val("");
+        $("#add_question").modal('show');
+    });
+
+    function showEditSocailLinkModal(id, name, value){
+        $('#name').val(name);
+        $("#name_error").html('');
+
+        $('#value').val(value);
+        $("#value_error").html('');
+
+        $("#icon_error").html('');
+
+        $('#socialId').val(id);
+
+        $("#info_modal").modal("show");
+    }
+
+    function manageSocialLink(){
+        var id= $('#socialId').val();
+        if(CheckNullUndefined(id)){
+            addSocialLink();
+        }
+        else{
+            editSocialLink();
+        }
+    }
+
+    //Add social link
+    function addSocialLink() {
+        var icon = $('#icon')[0].files[0];
+        var name = $('#name').val();
+        var value = $('#value').val();
+
+        var executeHttpRequest=true;
+
+        if (name.trim() == "") {
+            executeHttpRequest=false;
+            $("#name_error").html('Name is required.');
+        }
+        else{
+            $("#name_error").html('');
+        }
+        if (value.trim() == "") {
+            executeHttpRequest=false;
+            $("#value_error").html('Value is required.');
+        }
+        else{
+            $("#value_error").html('');
+        }
+        if ($('#icon')[0].files.length == 0) {
+            executeHttpRequest = false;
+            $("#icon_error").html('Icon is required.');
+        }
+        else {
+             $("#icon_error").html('');
+        }
+
+        if(executeHttpRequest == true) {
+            //Ajax Call
+            var formData = new FormData();
+
+            formData.append("file", icon);
+            console.log(formData);
+            $.ajax({
+                type: "POST",
+                url: "/manage/uploadFile",
+                dataType: "json",
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: function (icon) {
+
+                     //Data object
+                        var data = {};
+                        data.type = 2;
+                        data.icon = icon,
+                        data.name = name;
+                        data.value = value;
+                        //Ajax Request
+                        loadHttpRequest("POST", "/manage/addAppContent", addSocialLinkCallback, JSON.stringify(data));
+                },
+                error: function (error) {
+                    toastr.error("Error", "Icon not uploaded.");
+                    return error;
+                },
+            });
+        }
+    }
+    function addSocialLinkCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Successfully added.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function () {
+            $("#info_modal").modal('hide');
+            location.reload();
+        })
+    }
+    //Edit social link
+    function editSocialLink() {
+
+        var id = $('#socialId').val();
+        var name = $('#name').val();
+        var value = $('#value').val();
+
+        var executeHttpRequest=true;
+
+        if (name.trim() == "") {
+            executeHttpRequest=false;
+            $("#name_error").html('Name is required.');
+        }
+        else{
+            $("#name_error").html('');
+        }
+        if (value.trim() == "") {
+            executeHttpRequest=false;
+            $("#value_error").html('Name is required.');
+        }
+        else{
+            $("#value_error").html('');
+        }
+
+        if(executeHttpRequest==true) {
+
+            var icon = $('#icon')[0].files[0];
+
+             //Data object
+             var data = {};
+             data.id = id;
+             data.name = name;
+             data.value = value;
+
+             if ($('#icon')[0].files.length == 0) {
+                //Ajax Request
+                loadHttpRequest("POST", "/manage/editAppContent", editSocialLinkCallback, JSON.stringify(data));
+             }
+             else{
+               //Ajax Call
+                var formData = new FormData();
+
+                formData.append("file", icon);
+                $.ajax({
+                    type: "POST",
+                    url: "/manage/uploadFile",
+                    dataType: "json",
+                    contentType: false,
+                    processData: false,
+                    data: formData,
+                    success: function (icon) {
+                        data.icon = icon,
+                        //Ajax Request
+                        loadHttpRequest("POST", "/manage/editAppContent", editSocialLinkCallback, JSON.stringify(data));
+                    },
+                    error: function (error) {
+                        toastr.error("Error", "Icon not uploaded.");
+                        return error;
+                    },
+                });
+             }
+
+
+        }
+    }
+    function editSocialLinkCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Successfully updated.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function () {
+            $("#info_modal").modal('hide');
+            location.reload();
+        })
+    }
+    //Scoial link end
+
+    //Show question and answer
+    $(document).on("click", ".doc", function () {
+        var question = $(this).attr("data-question");
+        var answer = $(this).attr("data-answer");
+
+        $('#qus').text(question);
+        $('#ans').text(answer);
+
+        $('#detail').modal("show");
+    });
+
+    //Delete record start
+
+    function deleteRecord(id) {
+       
+        swal.fire({
+            title: 'Are you sure, you want to delete this record',
+            icon: 'warning',
+            allowOutsideClick: false,
+            showCloseButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Delete it!'
+        }).then((result) => {
+                if (result.isConfirmed) {
+                    //Ajax Request
+                    loadHttpRequest("GET", "/manage/deleteAppContent?id="+id, deleteRecordCallback);
+                }
+        });
+    }
+
+
+    function deleteRecordCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Status updated.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function () {
+            location.reload();
+        })
+    }
+    //Delete record end
+</script>

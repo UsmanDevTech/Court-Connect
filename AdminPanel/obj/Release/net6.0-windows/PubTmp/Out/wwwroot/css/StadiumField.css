@@ -1,0 +1,59 @@
+﻿.custom-field-icon {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.field-tab-btn {
+    border: black;
+    background-color: rgb(154, 154, 154);
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.field-tab-btn-active {
+    color: white !important;
+    background-color: rgb(14, 87, 5) !important;
+}
+.dayselected {
+    background-color: #6CBA9E !important;
+    color: white;
+}
+
+.personselected {
+    background-color: #6CBA9E !important;
+    color: white;
+}
+
+.areaselected {
+    background-color: #6CBA9E !important;
+    color: white;
+}
+
+.personadd {
+    margin-top: 10px;
+    border: 1px solid;
+    border-radius: 30px;
+    padding: 8px 16px;
+    border: #eee;
+    margin-left: 10px;
+    background-color: #eee;
+}
+
+.areaadd {
+    margin-top: 10px;
+    border: 1px solid;
+    border-radius: 30px;
+    padding: 8px 16px;
+    border: #eee;
+    margin-left: 10px;
+    background-color: #eee;
+}
+
+.dayadd {
+    border: 1px solid;
+    border-radius: 30px;
+    padding: 4px 8px;
+    background-color: #eee;
+    border: #eee;
+    margin-left: 10px;
+}

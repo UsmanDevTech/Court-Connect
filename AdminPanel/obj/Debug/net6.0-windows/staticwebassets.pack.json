@@ -1,0 +1,1869 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\obj\\Debug\\net6.0-windows\\scopedcss\\projectbundle\\AdminPanel.bundle.scp.css",
+      "PackagePath": "staticwebassets\\AdminPanel.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\0570ed38-aec7-4d3d-8443-42baa9f545cb.mp4",
+      "PackagePath": "staticwebassets\\Images\\0570ed38-aec7-4d3d-8443-42baa9f545cb.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\07792914-8edb-4e3d-8d4a-5e324db19e20.png",
+      "PackagePath": "staticwebassets\\Images\\07792914-8edb-4e3d-8d4a-5e324db19e20.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\0a79a8c8-b92b-47dd-817d-1fba3c5710c2.mp4",
+      "PackagePath": "staticwebassets\\Images\\0a79a8c8-b92b-47dd-817d-1fba3c5710c2.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\0e22ced9-d852-4f80-9e92-c2a191bd12d1.png",
+      "PackagePath": "staticwebassets\\Images\\0e22ced9-d852-4f80-9e92-c2a191bd12d1.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\0ed7b388-8c6b-4ee7-9be0-bcb991176ae6.png",
+      "PackagePath": "staticwebassets\\Images\\0ed7b388-8c6b-4ee7-9be0-bcb991176ae6.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\0fef1ac7-9f3f-455f-94d5-43e0aa2aa84a.png",
+      "PackagePath": "staticwebassets\\Images\\0fef1ac7-9f3f-455f-94d5-43e0aa2aa84a.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\12ceb628-4cda-4cf4-af83-eebe1048c576.png",
+      "PackagePath": "staticwebassets\\Images\\12ceb628-4cda-4cf4-af83-eebe1048c576.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\14ac50c4-2521-41e4-be74-47f6e68b2d97.mp4",
+      "PackagePath": "staticwebassets\\Images\\14ac50c4-2521-41e4-be74-47f6e68b2d97.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\1564dbb9-6a41-479f-991b-7aafe3214e1e.mp4",
+      "PackagePath": "staticwebassets\\Images\\1564dbb9-6a41-479f-991b-7aafe3214e1e.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\1c9eec81-752e-4c9e-a49b-145403038a91.png",
+      "PackagePath": "staticwebassets\\Images\\1c9eec81-752e-4c9e-a49b-145403038a91.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\1d2437f1-e77c-4b3d-b497-952fae39c786.png",
+      "PackagePath": "staticwebassets\\Images\\1d2437f1-e77c-4b3d-b497-952fae39c786.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\1df33fb0-de8a-4f3c-b47a-fcbb0bc1db75.png",
+      "PackagePath": "staticwebassets\\Images\\1df33fb0-de8a-4f3c-b47a-fcbb0bc1db75.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\2a0c79e8-f7fc-4360-8e53-7547375f25ed.png",
+      "PackagePath": "staticwebassets\\Images\\2a0c79e8-f7fc-4360-8e53-7547375f25ed.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\3491e54d-e69e-42dc-a938-01afcad54da6.png",
+      "PackagePath": "staticwebassets\\Images\\3491e54d-e69e-42dc-a938-01afcad54da6.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\362fe0a4-69ca-486c-a297-803916533302.png",
+      "PackagePath": "staticwebassets\\Images\\362fe0a4-69ca-486c-a297-803916533302.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\37cf9c30-733b-4eea-9a23-dc3dfcd6f395.png",
+      "PackagePath": "staticwebassets\\Images\\37cf9c30-733b-4eea-9a23-dc3dfcd6f395.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\37e0dd4f-b9c9-4738-a47b-8d5422d70872.png",
+      "PackagePath": "staticwebassets\\Images\\37e0dd4f-b9c9-4738-a47b-8d5422d70872.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\3b738d58-c2ae-4485-bc9a-f93004179532.png",
+      "PackagePath": "staticwebassets\\Images\\3b738d58-c2ae-4485-bc9a-f93004179532.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\424e9fa4-c3c8-4971-beee-092613aab88f.mp4",
+      "PackagePath": "staticwebassets\\Images\\424e9fa4-c3c8-4971-beee-092613aab88f.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\439e9e5c-2086-4101-89bc-98f43d6b2b2a.png",
+      "PackagePath": "staticwebassets\\Images\\439e9e5c-2086-4101-89bc-98f43d6b2b2a.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\4693e5f6-2492-48f1-90d6-0d41b66a62ce.png",
+      "PackagePath": "staticwebassets\\Images\\4693e5f6-2492-48f1-90d6-0d41b66a62ce.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\48725b3c-2049-465c-b259-303be8221087.png",
+      "PackagePath": "staticwebassets\\Images\\48725b3c-2049-465c-b259-303be8221087.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\5015f6d5-e5c7-492d-8513-572bfb817ef4.png",
+      "PackagePath": "staticwebassets\\Images\\5015f6d5-e5c7-492d-8513-572bfb817ef4.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\58bf1e67-ba32-4ac4-b58b-5e55deb3cab1.png",
+      "PackagePath": "staticwebassets\\Images\\58bf1e67-ba32-4ac4-b58b-5e55deb3cab1.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\5ce42bb0-6ba0-4b94-80ea-defe240e6e0a.png",
+      "PackagePath": "staticwebassets\\Images\\5ce42bb0-6ba0-4b94-80ea-defe240e6e0a.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\61d05a1d-e180-43c4-b079-9cf281353595.png",
+      "PackagePath": "staticwebassets\\Images\\61d05a1d-e180-43c4-b079-9cf281353595.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\64f038f5-18f4-4fc3-8575-e2c12165ac00.mp4",
+      "PackagePath": "staticwebassets\\Images\\64f038f5-18f4-4fc3-8575-e2c12165ac00.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\66f6738d-3965-4b04-ad00-a8e6e080bfde.png",
+      "PackagePath": "staticwebassets\\Images\\66f6738d-3965-4b04-ad00-a8e6e080bfde.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\67144177-2e37-4a16-a71a-92de5a6a738a.png",
+      "PackagePath": "staticwebassets\\Images\\67144177-2e37-4a16-a71a-92de5a6a738a.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\6a8c0217-c364-4a7e-b2b5-753b06cb3df6.png",
+      "PackagePath": "staticwebassets\\Images\\6a8c0217-c364-4a7e-b2b5-753b06cb3df6.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\6b89942d-5d9b-4d1f-a10d-76d2b0fbe330.png",
+      "PackagePath": "staticwebassets\\Images\\6b89942d-5d9b-4d1f-a10d-76d2b0fbe330.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\6e455436-ea12-408d-aa0b-5758dec470b0.png",
+      "PackagePath": "staticwebassets\\Images\\6e455436-ea12-408d-aa0b-5758dec470b0.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\79300707-c87b-4c50-be73-6ed4a87eb561.webp",
+      "PackagePath": "staticwebassets\\Images\\79300707-c87b-4c50-be73-6ed4a87eb561.webp"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\7bf63a56-70aa-43c3-a0e9-64b28c421ed3.png",
+      "PackagePath": "staticwebassets\\Images\\7bf63a56-70aa-43c3-a0e9-64b28c421ed3.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\7cc7de44-a3fa-4fbe-bc81-4971baa9c904.png",
+      "PackagePath": "staticwebassets\\Images\\7cc7de44-a3fa-4fbe-bc81-4971baa9c904.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\7e8a1c87-77dc-4263-a802-70201570164e.png",
+      "PackagePath": "staticwebassets\\Images\\7e8a1c87-77dc-4263-a802-70201570164e.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\7f612451-4630-416e-991b-ce320aa08ac7.png",
+      "PackagePath": "staticwebassets\\Images\\7f612451-4630-416e-991b-ce320aa08ac7.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\7fcbed93-972e-43ee-9fd3-43914021dc85.mp4",
+      "PackagePath": "staticwebassets\\Images\\7fcbed93-972e-43ee-9fd3-43914021dc85.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\80eedb5d-9475-49aa-92af-cde9f888a7f2.mp4",
+      "PackagePath": "staticwebassets\\Images\\80eedb5d-9475-49aa-92af-cde9f888a7f2.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\80f2a3fb-da06-4dd6-a66d-eae625009abc.png",
+      "PackagePath": "staticwebassets\\Images\\80f2a3fb-da06-4dd6-a66d-eae625009abc.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\849e8ac4-213c-450b-a21b-538104605dd7.mp4",
+      "PackagePath": "staticwebassets\\Images\\849e8ac4-213c-450b-a21b-538104605dd7.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\898fb493-8ccf-434f-bde0-28985ffbfbf0.PNG",
+      "PackagePath": "staticwebassets\\Images\\898fb493-8ccf-434f-bde0-28985ffbfbf0.PNG"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\8a787421-a7cb-4883-9ae4-cb3ab27a9254.png",
+      "PackagePath": "staticwebassets\\Images\\8a787421-a7cb-4883-9ae4-cb3ab27a9254.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\8af12e78-16ce-4231-980c-0a4cab4e4134.png",
+      "PackagePath": "staticwebassets\\Images\\8af12e78-16ce-4231-980c-0a4cab4e4134.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\933694f3-a526-420b-be41-e5460f89e425.mp4",
+      "PackagePath": "staticwebassets\\Images\\933694f3-a526-420b-be41-e5460f89e425.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\9d1e9725-5ff1-439d-86c7-c2d5bb19f1bb.png",
+      "PackagePath": "staticwebassets\\Images\\9d1e9725-5ff1-439d-86c7-c2d5bb19f1bb.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Ellipse 1278.png",
+      "PackagePath": "staticwebassets\\Images\\Ellipse 1278.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Ellipse 1279.png",
+      "PackagePath": "staticwebassets\\Images\\Ellipse 1279.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Ellipse 1280.png",
+      "PackagePath": "staticwebassets\\Images\\Ellipse 1280.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Ellipse 1281.png",
+      "PackagePath": "staticwebassets\\Images\\Ellipse 1281.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Ellipse 1282.png",
+      "PackagePath": "staticwebassets\\Images\\Ellipse 1282.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Ellipse 3.png",
+      "PackagePath": "staticwebassets\\Images\\Ellipse 3.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Ellipse 9.png",
+      "PackagePath": "staticwebassets\\Images\\Ellipse 9.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 226598.png",
+      "PackagePath": "staticwebassets\\Images\\Group 226598.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 226601.png",
+      "PackagePath": "staticwebassets\\Images\\Group 226601.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 226602.png",
+      "PackagePath": "staticwebassets\\Images\\Group 226602.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 226604.png",
+      "PackagePath": "staticwebassets\\Images\\Group 226604.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 227317.png",
+      "PackagePath": "staticwebassets\\Images\\Group 227317.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 227330.png",
+      "PackagePath": "staticwebassets\\Images\\Group 227330.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 227357.png",
+      "PackagePath": "staticwebassets\\Images\\Group 227357.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 227379.png",
+      "PackagePath": "staticwebassets\\Images\\Group 227379.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 228167.png",
+      "PackagePath": "staticwebassets\\Images\\Group 228167.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 228171.png",
+      "PackagePath": "staticwebassets\\Images\\Group 228171.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 228383.png",
+      "PackagePath": "staticwebassets\\Images\\Group 228383.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 228384.png",
+      "PackagePath": "staticwebassets\\Images\\Group 228384.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 228385.png",
+      "PackagePath": "staticwebassets\\Images\\Group 228385.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 228392.png",
+      "PackagePath": "staticwebassets\\Images\\Group 228392.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Group 72470.png",
+      "PackagePath": "staticwebassets\\Images\\Group 72470.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Rectangle 23569.png",
+      "PackagePath": "staticwebassets\\Images\\Rectangle 23569.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Rectangle 29.png",
+      "PackagePath": "staticwebassets\\Images\\Rectangle 29.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Rectangle.png",
+      "PackagePath": "staticwebassets\\Images\\Rectangle.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\Vector.png",
+      "PackagePath": "staticwebassets\\Images\\Vector.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\a365d844-2d41-478a-ad29-27fa6c43a9bb.png",
+      "PackagePath": "staticwebassets\\Images\\a365d844-2d41-478a-ad29-27fa6c43a9bb.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\a6785885-2982-4111-b0fc-6f764e77ffb7.mp4",
+      "PackagePath": "staticwebassets\\Images\\a6785885-2982-4111-b0fc-6f764e77ffb7.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\a71cfab5-cf33-4354-a9f6-f8a492dbb2f9.png",
+      "PackagePath": "staticwebassets\\Images\\a71cfab5-cf33-4354-a9f6-f8a492dbb2f9.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\a73a16c4-8447-4150-a9a7-16af2df586e2.mp4",
+      "PackagePath": "staticwebassets\\Images\\a73a16c4-8447-4150-a9a7-16af2df586e2.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\a794429d-8721-4686-8ea5-ba5abe5884d4.png",
+      "PackagePath": "staticwebassets\\Images\\a794429d-8721-4686-8ea5-ba5abe5884d4.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\acb2e1c5-ef93-4b32-8c6a-722f94e3f34a.png",
+      "PackagePath": "staticwebassets\\Images\\acb2e1c5-ef93-4b32-8c6a-722f94e3f34a.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\aee3f247-79f8-40eb-93c8-408cd27bfdfa.png",
+      "PackagePath": "staticwebassets\\Images\\aee3f247-79f8-40eb-93c8-408cd27bfdfa.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\aerial-view-green-field-playing-football.png",
+      "PackagePath": "staticwebassets\\Images\\aerial-view-green-field-playing-football.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\aerial-view-green-field-playing-football1.png",
+      "PackagePath": "staticwebassets\\Images\\aerial-view-green-field-playing-football1.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\aerial-view-green-field-playing-football2.png",
+      "PackagePath": "staticwebassets\\Images\\aerial-view-green-field-playing-football2.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\af023271-e90a-4f03-8d8f-1c1550c8bcf0.mp4",
+      "PackagePath": "staticwebassets\\Images\\af023271-e90a-4f03-8d8f-1c1550c8bcf0.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\b45abeee-01ca-4dde-b0ef-8bbfaa382eb2.png",
+      "PackagePath": "staticwebassets\\Images\\b45abeee-01ca-4dde-b0ef-8bbfaa382eb2.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\b7ebc120-21a6-4d8c-a11b-03f42cdefca4.png",
+      "PackagePath": "staticwebassets\\Images\\b7ebc120-21a6-4d8c-a11b-03f42cdefca4.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\b82693c9-600f-40f4-aafe-70cce8329ed4.png",
+      "PackagePath": "staticwebassets\\Images\\b82693c9-600f-40f4-aafe-70cce8329ed4.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\b8ca6c38-2b57-4ffe-9ef6-20f9e151799b.png",
+      "PackagePath": "staticwebassets\\Images\\b8ca6c38-2b57-4ffe-9ef6-20f9e151799b.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\bb69766d-6dab-42b9-8207-60687353d0e6.png",
+      "PackagePath": "staticwebassets\\Images\\bb69766d-6dab-42b9-8207-60687353d0e6.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\bcfb0fe1-e13c-461f-ac66-2adca07cf4b2.png",
+      "PackagePath": "staticwebassets\\Images\\bcfb0fe1-e13c-461f-ac66-2adca07cf4b2.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\bdf6fe66-6d5d-44d6-8cef-93379085df9b.png",
+      "PackagePath": "staticwebassets\\Images\\bdf6fe66-6d5d-44d6-8cef-93379085df9b.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\c64c471c-d44f-4c87-8cf3-b7b41848ab3a.png",
+      "PackagePath": "staticwebassets\\Images\\c64c471c-d44f-4c87-8cf3-b7b41848ab3a.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\camera.png",
+      "PackagePath": "staticwebassets\\Images\\camera.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\changing-room.png",
+      "PackagePath": "staticwebassets\\Images\\changing-room.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\d1f6f4fb-e5f1-4a39-88ab-2390d81d4330.png",
+      "PackagePath": "staticwebassets\\Images\\d1f6f4fb-e5f1-4a39-88ab-2390d81d4330.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\d2d7714d-5d67-4811-9be0-f0b1a411732d.mp4",
+      "PackagePath": "staticwebassets\\Images\\d2d7714d-5d67-4811-9be0-f0b1a411732d.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\d3aa394e-a8d2-450c-b9c7-b71480c0f51b.png",
+      "PackagePath": "staticwebassets\\Images\\d3aa394e-a8d2-450c-b9c7-b71480c0f51b.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\d42499d6-f902-45a0-8f7c-9c816a183e38.png",
+      "PackagePath": "staticwebassets\\Images\\d42499d6-f902-45a0-8f7c-9c816a183e38.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\d961a179-8d25-432a-ad18-30179021cb8c.png",
+      "PackagePath": "staticwebassets\\Images\\d961a179-8d25-432a-ad18-30179021cb8c.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\dasdasd.png",
+      "PackagePath": "staticwebassets\\Images\\dasdasd.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\dcaa5542-c075-4fbc-8781-6534b9e5b9aa.png",
+      "PackagePath": "staticwebassets\\Images\\dcaa5542-c075-4fbc-8781-6534b9e5b9aa.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\dd0be7fc-bc5b-49e4-a94c-a73eb6a4bbb0.png",
+      "PackagePath": "staticwebassets\\Images\\dd0be7fc-bc5b-49e4-a94c-a73eb6a4bbb0.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\df38d8a3-d96d-4d82-a9a3-e1332ee78b47.png",
+      "PackagePath": "staticwebassets\\Images\\df38d8a3-d96d-4d82-a9a3-e1332ee78b47.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\df536090-e3c6-436c-bcef-b217feb70fcf.png",
+      "PackagePath": "staticwebassets\\Images\\df536090-e3c6-436c-bcef-b217feb70fcf.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\drawable-hdpi\\Rectangle 29.png",
+      "PackagePath": "staticwebassets\\Images\\drawable-hdpi\\Rectangle 29.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\drawable-ldpi\\Rectangle 29.png",
+      "PackagePath": "staticwebassets\\Images\\drawable-ldpi\\Rectangle 29.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\drawable-mdpi\\Rectangle 29.png",
+      "PackagePath": "staticwebassets\\Images\\drawable-mdpi\\Rectangle 29.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\drawable-xhdpi\\Rectangle 29.png",
+      "PackagePath": "staticwebassets\\Images\\drawable-xhdpi\\Rectangle 29.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\drawable-xxhdpi\\Rectangle 29.png",
+      "PackagePath": "staticwebassets\\Images\\drawable-xxhdpi\\Rectangle 29.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\drawable-xxxhdpi\\Rectangle 29.png",
+      "PackagePath": "staticwebassets\\Images\\drawable-xxxhdpi\\Rectangle 29.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\e07b99f9-aedc-4928-bc2c-16ecf7c1ca07.png",
+      "PackagePath": "staticwebassets\\Images\\e07b99f9-aedc-4928-bc2c-16ecf7c1ca07.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\e12e5ff1-c5c2-4e74-90ae-a3116f0f6bdf.png",
+      "PackagePath": "staticwebassets\\Images\\e12e5ff1-c5c2-4e74-90ae-a3116f0f6bdf.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\e90ce633-50cc-416c-9a61-1636e3e56cd2.png",
+      "PackagePath": "staticwebassets\\Images\\e90ce633-50cc-416c-9a61-1636e3e56cd2.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\eb0cb168-8ca0-449b-b405-a6e22729cba1.png",
+      "PackagePath": "staticwebassets\\Images\\eb0cb168-8ca0-449b-b405-a6e22729cba1.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\ed2fd183-f4be-448d-bfac-6e260a7136dd.png",
+      "PackagePath": "staticwebassets\\Images\\ed2fd183-f4be-448d-bfac-6e260a7136dd.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\edf8b44c-fe90-4889-b6a0-f47d43cef44f.png",
+      "PackagePath": "staticwebassets\\Images\\edf8b44c-fe90-4889-b6a0-f47d43cef44f.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\efa2ff9b-7501-4d04-ab72-d2596f009666.png",
+      "PackagePath": "staticwebassets\\Images\\efa2ff9b-7501-4d04-ab72-d2596f009666.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\eta.png",
+      "PackagePath": "staticwebassets\\Images\\eta.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\f232890b-ad5d-47bf-83c0-dd81beac1254.mp4",
+      "PackagePath": "staticwebassets\\Images\\f232890b-ad5d-47bf-83c0-dd81beac1254.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\f271a1b8-5e25-4198-97fc-80404bf575b1.png",
+      "PackagePath": "staticwebassets\\Images\\f271a1b8-5e25-4198-97fc-80404bf575b1.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\f745313c-58f4-4adb-8602-edd614355f5d.png",
+      "PackagePath": "staticwebassets\\Images\\f745313c-58f4-4adb-8602-edd614355f5d.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\f75e88c8-4347-40d1-b960-b1fbf532ca06.mp4",
+      "PackagePath": "staticwebassets\\Images\\f75e88c8-4347-40d1-b960-b1fbf532ca06.mp4"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\fa5dcf15-e301-4f0b-8518-5bebfbd0a5db.png",
+      "PackagePath": "staticwebassets\\Images\\fa5dcf15-e301-4f0b-8518-5bebfbd0a5db.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\faa76ec6-5346-4b98-99c2-3748134aef32.png",
+      "PackagePath": "staticwebassets\\Images\\faa76ec6-5346-4b98-99c2-3748134aef32.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\faf388c4-7f96-4bea-a34e-e3b082544fa4.png",
+      "PackagePath": "staticwebassets\\Images\\faf388c4-7f96-4bea-a34e-e3b082544fa4.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\field1.png",
+      "PackagePath": "staticwebassets\\Images\\field1.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\organizationLogo.jfif",
+      "PackagePath": "staticwebassets\\Images\\organizationLogo.jfif"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\parked-car.png",
+      "PackagePath": "staticwebassets\\Images\\parked-car.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\pexels-riccardo-41257.png",
+      "PackagePath": "staticwebassets\\Images\\pexels-riccardo-41257.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\pexels-sergio-souza-2039938.png",
+      "PackagePath": "staticwebassets\\Images\\pexels-sergio-souza-2039938.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\pexels-taryn-elliott-7565936.png",
+      "PackagePath": "staticwebassets\\Images\\pexels-taryn-elliott-7565936.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\profile.png",
+      "PackagePath": "staticwebassets\\Images\\profile.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\sdfasd.png",
+      "PackagePath": "staticwebassets\\Images\\sdfasd.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\sgsd.png",
+      "PackagePath": "staticwebassets\\Images\\sgsd.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\ticket.png",
+      "PackagePath": "staticwebassets\\Images\\ticket.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Images\\users-icon.png",
+      "PackagePath": "staticwebassets\\Images\\users-icon.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Logo\\Mini_logo.png",
+      "PackagePath": "staticwebassets\\Logo\\Mini_logo.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Logo\\court-connect-logo.png",
+      "PackagePath": "staticwebassets\\Logo\\court-connect-logo.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Logo\\loader-2.gif",
+      "PackagePath": "staticwebassets\\Logo\\loader-2.gif"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Logo\\no_image.jpg",
+      "PackagePath": "staticwebassets\\Logo\\no_image.jpg"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\Logo\\nodatafound.svg",
+      "PackagePath": "staticwebassets\\Logo\\nodatafound.svg"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\CircleBlick.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\CircleBlick.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\Custom.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\Custom.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\adminlte.min2167.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\adminlte.min2167.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\app\\main.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\app\\main.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\app\\views\\demo.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\app\\views\\demo.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\app\\views\\documentation.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\app\\views\\documentation.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\app\\views\\home.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\app\\views\\home.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\app\\views\\release-notes.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\app\\views\\release-notes.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\app\\views\\tests.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\app\\views\\tests.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\jquery.desoslide.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\jquery.desoslide.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\montserrat.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\montserrat.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\plugin.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\plugin.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\poppinsFont.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\poppinsFont.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\vendor\\animate\\animate.min.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\vendor\\animate\\animate.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\css\\vendor\\magic\\magic.min.css",
+      "PackagePath": "staticwebassets\\content\\dist\\css\\vendor\\magic\\magic.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-Black.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-Black.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-BlackItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-BlackItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-Bold.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-Bold.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-BoldItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-BoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-ExtraBold.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-ExtraBold.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-ExtraBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-ExtraBoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-ExtraLight.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-ExtraLight.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-ExtraLightItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-ExtraLightItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-Italic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-Italic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-Light.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-Light.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-LightItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-LightItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-Medium.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-Medium.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-MediumItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-MediumItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-Regular.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-Regular.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-SemiBold.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-SemiBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-SemiBoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-Thin.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-Thin.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\montserrat\\Montserrat-ThinItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\montserrat\\Montserrat-ThinItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-Black.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-Black.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-BlackItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-BlackItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-Bold.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-Bold.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-BoldItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-BoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-ExtraBold.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-ExtraBold.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-ExtraBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-ExtraBoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-ExtraLight.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-ExtraLight.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-ExtraLightItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-ExtraLightItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-Italic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-Italic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-Light.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-Light.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-LightItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-LightItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-Medium.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-Medium.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-MediumItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-MediumItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-Regular.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-Regular.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-SemiBold.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-SemiBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-SemiBoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-Thin.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-Thin.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\fonts\\poppins\\Poppins-ThinItalic.ttf",
+      "PackagePath": "staticwebassets\\content\\dist\\fonts\\poppins\\Poppins-ThinItalic.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\13StepsLogo.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\13StepsLogo.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\AppImages\\just-business-logo.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\AppImages\\just-business-logo.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\AppImages\\loader.gif",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\AppImages\\loader.gif"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\badminton-icon.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\badminton-icon.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\completed-task.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\completed-task.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\cycle-icon.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\cycle-icon.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\fish-icon.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\fish-icon.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\jog-icon.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\jog-icon.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\no-image-available.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\no-image-available.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\reading-icon.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\reading-icon.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\rectangles.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\rectangles.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\tap.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\tap.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\target.png",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\target.png"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\user1-128x128.jpg",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\user1-128x128.jpg"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\img\\user2-160x160.jpg",
+      "PackagePath": "staticwebassets\\content\\dist\\img\\user2-160x160.jpg"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\adminlte.min2167.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\adminlte.min2167.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\adminlte2167.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\adminlte2167.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\c3.bundle.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\c3.bundle.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\c3.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\c3.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\demo.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\demo.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\jquery.desoslide.min.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\jquery.desoslide.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\js\\app\\demo.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\js\\app\\demo.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\js\\app\\documentation.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\js\\app\\documentation.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\js\\app\\home.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\js\\app\\home.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\js\\app\\release-notes.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\js\\app\\release-notes.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\js\\vendor\\bootstrap\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\js\\vendor\\bootstrap\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\js\\vendor\\highlight\\highlight.pack.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\js\\vendor\\highlight\\highlight.pack.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\js\\vendor\\html5shiv\\html5shiv.min.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\js\\vendor\\html5shiv\\html5shiv.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\js\\vendor\\jquery\\jquery.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\js\\vendor\\jquery\\jquery.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\js\\vendor\\wow.min.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\js\\vendor\\wow.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\libscripts.bundle.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\libscripts.bundle.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\mainscripts.bundle.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\mainscripts.bundle.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\pages\\dashboard.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\pages\\dashboard.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\dist\\js\\vendorscripts.bundle.js",
+      "PackagePath": "staticwebassets\\content\\dist\\js\\vendorscripts.bundle.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\bootstrap\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\bs-stepper\\css\\bs-stepper.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\bs-stepper\\css\\bs-stepper.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\bs-stepper\\css\\bs-stepper.css.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\bs-stepper\\css\\bs-stepper.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\bs-stepper\\css\\bs-stepper.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\bs-stepper\\css\\bs-stepper.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\bs-stepper\\css\\bs-stepper.min.css.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\bs-stepper\\css\\bs-stepper.min.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\bs-stepper\\js\\bs-stepper.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\bs-stepper\\js\\bs-stepper.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\bs-stepper\\js\\bs-stepper.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\bs-stepper\\js\\bs-stepper.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\bs-stepper\\js\\bs-stepper.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\bs-stepper\\js\\bs-stepper.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\bs-stepper\\js\\bs-stepper.min.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\bs-stepper\\js\\bs-stepper.min.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\chart.js\\Chart.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\chart.js\\Chart.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-bs4\\css\\dataTables.bootstrap4.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-bs4\\css\\dataTables.bootstrap4.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-bs4\\css\\dataTables.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-bs4\\css\\dataTables.bootstrap4.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-bs4\\js\\dataTables.bootstrap4.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-bs4\\js\\dataTables.bootstrap4.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-bs4\\js\\dataTables.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-bs4\\js\\dataTables.bootstrap4.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\css\\buttons.bootstrap4.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\css\\buttons.bootstrap4.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\css\\buttons.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\css\\buttons.bootstrap4.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\buttons.bootstrap4.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\buttons.bootstrap4.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\buttons.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\buttons.bootstrap4.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\buttons.colVis.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\buttons.colVis.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\buttons.colVis.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\buttons.colVis.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\buttons.flash.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\buttons.flash.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\buttons.flash.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\buttons.flash.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\buttons.html5.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\buttons.html5.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\buttons.html5.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\buttons.html5.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\buttons.print.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\buttons.print.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\buttons.print.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\buttons.print.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\dataTables.buttons.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\dataTables.buttons.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-buttons\\js\\dataTables.buttons.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-buttons\\js\\dataTables.buttons.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-responsive\\css\\responsive.bootstrap4.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-responsive\\css\\responsive.bootstrap4.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-responsive\\css\\responsive.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-responsive\\css\\responsive.bootstrap4.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-responsive\\js\\dataTables.responsive.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-responsive\\js\\dataTables.responsive.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-responsive\\js\\dataTables.responsive.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-responsive\\js\\dataTables.responsive.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-responsive\\js\\responsive.bootstrap4.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-responsive\\js\\responsive.bootstrap4.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables-responsive\\js\\responsive.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables-responsive\\js\\responsive.bootstrap4.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables\\jquery.dataTables.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables\\jquery.dataTables.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\datatables\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\datatables\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\daterangepicker\\daterangepicker.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\daterangepicker\\daterangepicker.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\daterangepicker\\daterangepicker.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\daterangepicker\\daterangepicker.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\css\\all.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400d41d.eot",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-brands-400d41d.eot"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400d41d.eot",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-regular-400d41d.eot"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900d41d.eot",
+      "PackagePath": "staticwebassets\\content\\plugins\\fontawesome-free\\webfonts\\fa-solid-900d41d.eot"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\icheck-bootstrap\\icheck-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\icheck-bootstrap\\icheck-bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\jquery-ui\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\jquery-ui\\jquery-ui.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\jquery\\jquery.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\jquery\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\moment\\moment.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\moment\\moment.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\overlayScrollbars\\css\\OverlayScrollbars.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\overlayScrollbars\\css\\OverlayScrollbars.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\overlayScrollbars\\js\\jquery.overlayScrollbars.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\overlayScrollbars\\js\\jquery.overlayScrollbars.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\phoneNumber-validator\\jquery.caret.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\phoneNumber-validator\\jquery.caret.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\phoneNumber-validator\\jquery.mobilePhoneNumber.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\phoneNumber-validator\\jquery.mobilePhoneNumber.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\esm\\popper-utils.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\esm\\popper-utils.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\esm\\popper-utils.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\esm\\popper-utils.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\esm\\popper-utils.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\esm\\popper-utils.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\esm\\popper-utils.min.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\esm\\popper-utils.min.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\esm\\popper.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\esm\\popper.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\esm\\popper.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\esm\\popper.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\esm\\popper.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\esm\\popper.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\esm\\popper.min.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\esm\\popper.min.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\popper-utils.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\popper-utils.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\popper-utils.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\popper-utils.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\popper-utils.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\popper-utils.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\popper-utils.min.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\popper-utils.min.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\popper.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\popper.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\popper.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\popper.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\popper.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\popper.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\popper.min.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\popper.min.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\umd\\popper-utils.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\umd\\popper-utils.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\umd\\popper-utils.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\umd\\popper-utils.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\umd\\popper-utils.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\umd\\popper-utils.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\umd\\popper-utils.min.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\umd\\popper-utils.min.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\umd\\popper.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\umd\\popper.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\umd\\popper.js.flow",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\umd\\popper.js.flow"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\umd\\popper.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\umd\\popper.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\umd\\popper.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\umd\\popper.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\popper\\umd\\popper.min.js.map",
+      "PackagePath": "staticwebassets\\content\\plugins\\popper\\umd\\popper.min.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2-bootstrap4-theme\\select2-bootstrap4.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2-bootstrap4-theme\\select2-bootstrap4.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2-bootstrap4-theme\\select2-bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2-bootstrap4-theme\\select2-bootstrap4.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\css\\select2.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\css\\select2.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\css\\select2.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\af.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\af.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\ar.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\ar.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\az.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\az.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\bg.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\bg.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\bn.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\bn.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\bs.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\bs.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\build.txt",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\build.txt"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\ca.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\ca.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\cs.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\cs.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\da.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\da.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\de.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\de.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\dsb.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\dsb.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\el.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\el.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\en.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\en.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\es.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\es.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\et.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\et.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\eu.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\eu.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\fa.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\fa.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\fi.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\fi.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\fr.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\fr.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\gl.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\gl.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\he.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\he.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\hi.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\hi.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\hr.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\hr.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\hsb.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\hsb.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\hu.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\hu.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\hy.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\hy.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\id.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\id.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\is.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\is.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\it.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\it.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\ja.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\ja.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\ka.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\ka.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\km.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\km.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\ko.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\ko.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\lt.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\lt.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\lv.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\lv.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\mk.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\mk.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\ms.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\ms.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\nb.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\nb.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\ne.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\ne.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\nl.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\nl.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\pl.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\pl.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\ps.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\ps.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\pt-BR.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\pt-BR.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\pt.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\pt.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\ro.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\ro.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\ru.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\ru.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\sk.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\sk.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\sl.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\sl.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\sq.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\sq.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\sr-Cyrl.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\sr-Cyrl.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\sr.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\sr.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\sv.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\sv.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\th.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\th.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\tk.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\tk.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\tr.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\tr.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\uk.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\uk.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\vi.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\vi.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\zh-CN.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\zh-CN.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\i18n\\zh-TW.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\i18n\\zh-TW.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\select2.full.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\select2.full.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\select2.full.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\select2.full.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\select2.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\select2.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\select2\\js\\select2.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\select2\\js\\select2.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\summernote\\font\\summernote.ttf",
+      "PackagePath": "staticwebassets\\content\\plugins\\summernote\\font\\summernote.ttf"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\summernote\\font\\summernote.woff",
+      "PackagePath": "staticwebassets\\content\\plugins\\summernote\\font\\summernote.woff"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\summernote\\font\\summernote.woff2",
+      "PackagePath": "staticwebassets\\content\\plugins\\summernote\\font\\summernote.woff2"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\summernote\\font\\summernoted41d.eot",
+      "PackagePath": "staticwebassets\\content\\plugins\\summernote\\font\\summernoted41d.eot"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\summernote\\summernote-bs4.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\summernote\\summernote-bs4.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\summernote\\summernote-bs4.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\summernote\\summernote-bs4.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\sweetalert2-theme-bootstrap-4\\bootstrap-4.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\sweetalert2-theme-bootstrap-4\\bootstrap-4.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\sweetalert2\\sweetalert2.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\sweetalert2\\sweetalert2.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\sweetalert2\\sweetalert2.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\sweetalert2\\sweetalert2.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\tempusdominus-bootstrap-4\\css\\tempusdominus-bootstrap-4.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\tempusdominus-bootstrap-4\\css\\tempusdominus-bootstrap-4.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\tempusdominus-bootstrap-4\\js\\tempusdominus-bootstrap-4.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\tempusdominus-bootstrap-4\\js\\tempusdominus-bootstrap-4.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\toastr\\toastr.min.css",
+      "PackagePath": "staticwebassets\\content\\plugins\\toastr\\toastr.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\content\\plugins\\toastr\\toastr.min.js",
+      "PackagePath": "staticwebassets\\content\\plugins\\toastr\\toastr.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\css\\StadiumField.css",
+      "PackagePath": "staticwebassets\\css\\StadiumField.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\jcarosel\\jcarousel.connected-carousels.css",
+      "PackagePath": "staticwebassets\\jcarosel\\jcarousel.connected-carousels.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\jcarosel\\jcarousel.connected-carousels.js",
+      "PackagePath": "staticwebassets\\jcarosel\\jcarousel.connected-carousels.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\jcarosel\\jquery.jcarousel.min.js",
+      "PackagePath": "staticwebassets\\jcarosel\\jquery.jcarousel.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\jcarosel\\jquery.js",
+      "PackagePath": "staticwebassets\\jcarosel\\jquery.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\CleanArch\\CourtConnect\\AdminPanel\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0-windows\\staticwebassets\\msbuild.AdminPanel.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0-windows\\staticwebassets\\msbuild.build.AdminPanel.props",
+      "PackagePath": "build\\AdminPanel.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0-windows\\staticwebassets\\msbuild.buildMultiTargeting.AdminPanel.props",
+      "PackagePath": "buildMultiTargeting\\AdminPanel.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0-windows\\staticwebassets\\msbuild.buildTransitive.AdminPanel.props",
+      "PackagePath": "buildTransitive\\AdminPanel.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

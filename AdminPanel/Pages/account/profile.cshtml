@@ -1,0 +1,263 @@
+﻿@page
+@model AdminPanel.Pages.account.profileModel
+
+<style>
+    .toggle-password {
+        top: 35px;
+        right: 25px;
+    }
+
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        color: #6CBA9E;
+        border-bottom: 3px solid #6CBA9E;
+    }
+
+    .nav-tabs .nav-link {
+        margin-bottom: 0px;
+        border: 0px;
+    }
+
+    .nav-link {
+        color: black;
+    }
+
+    .nav-link:hover {
+        color: #6CBA9E;
+        text-decoration: none;
+    }
+
+    .btn-primary {
+        background-color: #6CBA9E;
+    }
+
+</style>
+
+<div class="content pt-4">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <form class="author-box-center" id="uploadPhoto">
+                            <p>
+                                <input type="file" accept="image/*" name="imageFile" id="file" onchange="loadFile(event)" class="d-none" />
+                            </p>
+                            <p class="text-center mb-0">
+                                <label for="file" class="cursor-pointer">
+                                    <span style="border-radius: 50%; margin-left: 108px; position: absolute; width: 30px; height: 30px; margin-top: 105px;">
+                                        <img id="iconimage" class="img-responsive thumbnail shadow" src="~/Images/camera.png" width="28" style="border-radius:30%; background:white; padding:3px;" onclick="document.getElementById(iconimage)" />
+                                    </span>
+                                    <img style="object-fit: cover;" id="output" src="@Model.Profile.profilePic" class="rounded-circle shadow-sm" width="140" height="140" />
+                                    <span id="percent" style="display:none;"></span>
+                                </label>
+                            </p>
+
+                            <p class="text-center">
+                                @Model.Profile.name
+                            </p>
+                        </form>
+
+
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-8">
+                        <div class="padding-20">
+
+                            <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" onclick="showbankdetails(this)" id="home-tab1" data-toggle="tab" href="#about1" role="tab"
+                                       aria-selected="true">Basic Detail</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#settings" role="tab"
+                                       aria-selected="false">Change Password</a>
+                                </li>
+
+                            </ul>
+                            <div class="tab-content tab-bordered" id="myTab3Content">
+                                <div class="tab-pane fade active show" id="about1" role="tabpanel" aria-labelledby="home-tab1">
+                                    <div class="row" style="padding:20px 20px;">
+                                        <div class="col-md-12 mb-2">
+                                            <label for="Name"></label>
+                                            <input type="text" class="form-control" maxlength="30" name="Name" id="name" value="@Model.Profile.name" required>
+                                        </div>
+
+                                        <div class="col-md-12 mb-2">
+                                            <label for="Email"></label>
+                                            <input type="email" class="form-control" name="Email" id="email" value="@Model.Profile.email" readonly>
+                                        </div>
+                                        <div class="col-12 mt-2">
+                                            <a id="btn_profile" onclick="updateProfileInfo()" class="btn btn-primary float-right">Update</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                                    <div class="row" style="padding:20px 20px;">
+                                        <div class="col-md-6 mb-2">
+                                            <label for="New Password"></label>
+                                            <input type="password" class="form-control" name="NewPassword" id="new_password" placeholder="" required>
+                                            <i toggle="#new_password" class="fa fa-fw fa-eye toggle-password position-absolute field-icon"></i>
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <label for="Confirm Password"></label>
+                                            <input type="password" class="form-control" name="ConfirmPassword" id="confirm_password" placeholder="" required>
+                                            <i toggle="#confirm_password" class="fa fa-fw fa-eye toggle-password position-absolute field-icon"></i>
+                                        </div>
+
+                                        <div class="col-12 mt-2">
+                                            <a id="btn_password" class="btn btn-primary float-right" onclick="resetPassword()">Update</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //load file effect
+    function loadFile(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function () {
+            URL.revokeObjectURL(output.src) // free memory
+        }
+        uploadFile();
+    };
+    function uploadFile(){
+        loaderDiv.innerHTML = '<div class="loading">Loading&#8230;</div>';
+
+        var icon = $('#file')[0].files[0];
+        var formData = new FormData();
+
+        formData.append("file", icon);
+        console.log(formData);
+        $.ajax({
+            type: "POST",
+            url: "/manage/updateProfilePicture",
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (data) {
+                loaderDiv.innerHTML = '';
+                Toast.fire({ icon: 'success', title: 'Profile picture updated' });
+            },
+            error: function (error) {
+                loaderDiv.innerHTML = '';
+                toastr.error("Error", error.message);
+                return error;
+            },
+        });
+    }
+    function updateProfileInfo(){
+        var executeHttpRequest=true;
+        var name = $("#name").val();
+        var email = $("#email").val();
+        //check field name
+        if (CheckNullUndefined(name.trim())) {
+            Toast.fire({ icon: 'warning', title: '' });
+            executeHttpRequest = false;
+        }
+        if (CheckNullUndefined(email.trim())) {
+            Toast.fire({ icon: 'warning', title: '' });
+            executeHttpRequest = false;
+        }
+        if (executeHttpRequest==true){
+
+            var data = {};
+            data.name = name;
+            data.phone = null;
+            data.profileImageUrl = null;
+            data.clubName = null;
+            data.latitute = 0;
+            data.longitute = 0;
+            data.radius = 0;
+            data.interests = null;
+            data.about = null;
+
+            loadHttpRequest("POST", "/manage/updateProfile", updateProfileHandler, JSON.stringify(data));
+        }
+    }
+    function updateProfileHandler(evt){
+        Swal.fire({
+            title: 'Profile updated successfully',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function () {
+            location.reload();
+        })
+    }
+    function updatePasswordHandler(evt) {
+        $("#new_password").val("");
+        $("#confirm_password").val("");
+        Swal.fire({
+            title: 'Password changed successfully',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function () {
+            location.reload();
+        })
+    }
+    function resetPassword(){
+        var password = $('#new_password').val();
+        var confirmPassword=$('#confirm_password').val();
+
+        var isPasswordValid=true;
+        var lowerCaseLetters = /[a-z]/g;
+        var upperCaseLetters = /[A-Z]/g;
+        var numbers = /[0-9]/g;
+        var nonAlphaNumaric = /[^a-zA-Z0-9]/g;
+        if (password.length <= 5) {
+            toastr.error('Password must be atleast 6 charactors long');
+            isPasswordValid = false;
+        }
+        else if (!password.match(lowerCaseLetters)) {
+            toastr.error('Password must contail atleast 1 lowercase letter');
+            isPasswordValid = false;
+        }
+        else if (!password.match(upperCaseLetters)) {
+            toastr.error('Password must contain atleast 1 upper letter');
+            isPasswordValid = false;
+        }
+        else if (!password.match(numbers)) {
+            toastr.error('Password must contain atleast 1 number');
+            isPasswordValid = false;
+        }
+        else if (!password.match(nonAlphaNumaric)) {
+            toastr.error('Password must contain atleast 1 non alphanumaric charactor');
+            isPasswordValid = false;
+        }
+        else if (password.trim() != confirmPassword.trim()){
+            toastr.error('New password and confirm password must match');
+            isPasswordValid = false;
+        }
+
+        if(isPasswordValid){
+            var data = {};
+            data.password = password;
+            loadHttpRequest("POST", "/manage/changePassword", updatePasswordHandler, JSON.stringify(data));
+        }
+    }
+
+     $(".toggle-password").on('click', function () {
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
+</script>
+

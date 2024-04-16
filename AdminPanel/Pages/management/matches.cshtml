@@ -1,0 +1,98 @@
+﻿@page
+@model AdminPanel.Pages.management.matchesModel
+
+
+<div class="container-fluid">
+    <div class="row mb-2 pt-4">
+        <div class="col-12">
+            <h4>Matches</h4>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table w-100" id="match_table">
+                    <thead class="no-wrap">
+                        <tr>
+                            <th>Id</th>
+                            <th>Created By</th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Phone</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Total Matches</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Matches</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+         $(function () {
+
+             var columns = [
+             {
+                 "data": "data.id",
+                 "name": "data.id"
+             },
+             {
+                 "data": "data.name",
+                 "name": "data.name",
+                 "render": function (data, row, payload) {
+                     var imageUrl = "";
+                     if (CheckNullUndefined(payload.data.profilePic)) {
+                         imageUrl = "/content/dist/img/no-image-available.png";
+                     }
+                     else {
+                         imageUrl = payload.data.profilePic;
+                     }
+                     return '<div class="datatableTdTitleTextWrapper">'
+                         + ' <div class="user-block" style="float: none!important;">'
+                         + '     <img class="img-circle" src = "' + imageUrl + '">'
+                         + '     <span class="username"><a class="table-link" id="linkMakerDetails" > ' + data + '</a></span>'
+                         + '     <span class="description"><i class="far fa-id-badge"></i> ' + payload.data.email + ' </span>'
+                         + ' </div>'
+                         + '</div>';
+                 }
+             },
+           
+             {
+                 "data": "data.phone",
+                 "name": "data.phone",
+                 "render": function (data, row) {
+                         return '<div class="datatableTdTitleTextWrapper"><span>' + data + ' </span></div>'
+                 }
+             },
+             {
+                 "data": "data.totalMatches",
+                 "name": "data.totalMatches",
+                 "render": function (data, row) {
+                         return '<div class="datatableTdTitleTextWrapper"><span>' + data + ' </span></div>'
+                 }
+             },
+              {
+                 "data": "data.id",
+                 "name": "data.id",
+                  "render": function (data, row) {
+
+                     return `<a href="/management/matchDetail/${data}" class="btn btn-sm btn-outline-primary cursor-pointer" data-userid="${data}"><i class="fas fa-baseball-ball"></i></a>`;
+                 }
+             },
+         ];
+         var order = [[0, "desc"]];
+         var columnDefs = [{
+             "targets": [0],
+             "visible": false,
+             "searchable": false
+         }];
+         //Init Datatable
+         initGeneralDatatable('#match_table', '/manage/getPaginationData/2', columns, order, columnDefs);
+     });
+</script>

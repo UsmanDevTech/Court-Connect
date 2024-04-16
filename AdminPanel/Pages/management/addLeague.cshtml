@@ -1,0 +1,320 @@
+﻿@page
+@model AdminPanel.Pages.management.addLeagueModel
+@{
+}
+
+<div class="container-fluid">
+    <div class="row mb-2 pt-4">
+        <div class="col-sm-6">
+            <h4><span id="pageTitleFilter"></span>Add League</h4>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <input id="id" hidden />
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="categoryname">league Name <span class="text-danger">*</span> <code>max 50 characters</code></label>
+                        <input type="text" class="form-control rounded-0" name="categoryname" id="leaguename" placeholder="enter name..." maxlength="50">
+                        <span class="text-danger" id="leaguename-error"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="categoryname">Min Range</label>
+                        <input type="number" class="form-control rounded-0" value="0" min="0" onkeypress="return event.charCode != 45" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="minrange" id="minrange" placeholder="enter category name..." maxlength="50">
+                        <span class="text-danger" id="minrange-error"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="categoryname">Max Range</label>
+                        <input type="number" class="form-control rounded-0" value="0" min="0" onkeypress="return event.charCode != 45" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="maxrange" id="maxrange" placeholder="enter category name..." maxlength="50">
+                        <span class="text-danger" id="maxrange-error"></span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="bodyFile">File Url</label>
+                        <input type="file" class="form-control" id="file" name="file" accept="image/*">
+                        <span class="text-danger" id="file-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group col-12">
+                    <button id="num" type="button" class="btn btn-primary">Add SubLeague</button>
+                    <div id="targetDIV"></div>
+                </div>
+
+            </div>
+            <div class="float-right">
+                <button id="addleagueBtn" onclick="createLeague()" class="btn btn-primary">Save League</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    //SubLeague Append
+    var indexList = [];
+    var i = 0;
+
+    $('#num').on('click', function() {
+
+        $("#targetDIV").append(`<div class="row clearfix border rounded my-2" style="padding:10px;" id="a${i}">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="categoryname">SubLeague Name <span class="text-danger">*</span> <code>max 50 characters</code></label>
+                            <input type="text" class="form-control rounded-0" name="categoryname" id="subleaguename${i}" placeholder="enter name..." maxlength="50">
+                            <span class="text-danger" id="categoryname-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="categoryname">Min Range</label>
+                            <input type="number" class="form-control rounded-0" value="0" min="0" onkeypress="return event.charCode != 45" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="minrange" id="subleagueminrange${i}" placeholder="enter category name..." maxlength="50">
+                            <span class="text-danger" id="categoryname-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="categoryname">Max Range</label>
+                            <input type="number" class="form-control rounded-0" value="0" min="0" onkeypress="return event.charCode != 45" maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="maxrange" id="subleaguemaxrange${i}" placeholder="enter category name..." maxlength="50">
+                            <span class="text-danger" id="categoryname-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <label for="bodyFile">File Url</label>
+                            <input type="file" class="form-control" id="subleaguefile${i}" name="file" accept="image/*">
+                        </div>
+                    </div>
+                                <div class="col-md-2 col-sm-12">
+                                    <a onclick="delIndex(${i})" class="btn btn-danger mt-4 float-right"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </div>`);
+        indexList.push(i);
+        i++;
+    });
+
+
+    $('.cls').on('click', function() {
+        $("#targetDIV").html("");
+        indexList = [];
+        i = 0;
+    })
+
+    function delIndex(i) {
+
+        const index = indexList.indexOf(i);
+        if (index > -1) {
+            indexList.splice(index, 1);
+            $('#a' + i).addClass('d-none');
+        }
+    }
+
+    async function manageLeague() {
+        var id = $('#id').val();
+        await createLeague();
+        //if (CheckNullUndefined(id)) {
+        //    await createLeague();
+        //}
+        //else {
+        //    await editLeague();
+        //}
+    }
+
+    async function createLeague() {
+        var title = $('#leaguename').val();
+        var minrange = $('#minrange').val();
+        var file = $('#file').val();
+        var maxrange = $('#maxrange').val();
+
+        var subLeagueList = [];
+        var executeHttpRequest = true;
+
+        if (CheckNullUndefined(title)) {
+            executeHttpRequest = false;
+            $("#leaguename_error").html('Title is required.');
+        }
+        else {
+            $("#leaguename_error").html('');
+        }
+        if (CheckNullUndefined(minrange)) {
+            executeHttpRequest = false;
+            $("#minrange_error").html('Min Range must have min value 0.');
+        }
+        else {
+            $("#minrange_error").html('');
+        }
+        if (CheckNullUndefined(maxrange)) {
+            executeHttpRequest = false;
+            $("#maxrange_error").html('max range is required.');
+        }
+        else {
+            $("#maxrange_error").html('');
+        }
+        if (CheckNullUndefined(file)) {
+            executeHttpRequest = false;
+            $("#file_error").html('File is required.');
+        }
+        else {
+            $("#file_error").html('');
+        }
+
+        if (indexList.length > 0) {
+            for (var i = 0; i < indexList.length; i++) {
+
+                var index = indexList[i];
+                var data = {};
+                var name = $('#subleaguename' + index).val();
+                var file = $('#subleaguefile' + index).val();
+                var minrange = $("#subleagueminrange" + index).val();
+                var maxrange = $("#subleaguemaxrange" + index).val();
+                                data.subleagueName = name;
+                                data.subminRange = minrange;
+                                data.submaxRange = maxrange;
+                               var formData = new FormData(); 
+                        leaguefile = $('#subleaguefile' + index)[0].files[0];
+                        alert(leaguefile);
+                        formData.append('file', leaguefile);
+                        $.ajax({
+                            type: "POST",
+                            url: "/manage/uploadFile",
+                            data: formData,
+                            contentType: false,
+                            processData: false,
+                            cache: false,
+                            async: false,
+                            complete: function(res) {
+                                //data.subleagueName = name;
+                                data.subleagueIcon = res.responseJSON;
+                                //data.subminRange = minrange;
+                                //data.submaxRange = maxrange;
+
+                                subLeagueList.push(data);
+                                //Ajax Request
+                                //loadHttpRequest("POST", "/manage/addCouchingHub", addCouchingHubCallback, JSON.stringify(data));
+                            }
+                        });
+                //if (CheckNullUndefined(file)) {
+                //    executeHttpRequest = false;
+                //}
+                //else {
+                //    var formData = new FormData();
+                //    //var data = {};
+                //    //if (ext == 'jpeg' || ext == 'jpg' || ext == 'png' || ext == 'PNG' || ext == 'JPG' || ext == 'JPEG' || ext == 'tiff' || ext == 'eps' || ext == 'raw') {
+
+                //    //    file = $('#subleaguefile' + index)[0].files[0];
+                //    //    alert(file);
+                //    //    formData.append('file', file);
+                //    //    $.ajax({
+                //    //        type: "POST",
+                //    //        url: "/manage/uploadFile",
+                //    //        data: formData,
+                //    //        contentType: false,
+                //    //        processData: false,
+                //    //        cache: false,
+                //    //        async: false,
+                //    //        complete: function(res) {
+                //    //            //data.subleagueName = name;
+                //    //            data.subleagueIcon = res;
+                //    //            //data.subminRange = minrange;
+                //    //            //data.submaxRange = maxrange;
+
+                //    //            subLeagueList.push(data);
+                //    //            //Ajax Request
+                //    //            //loadHttpRequest("POST", "/manage/addCouchingHub", addCouchingHubCallback, JSON.stringify(data));
+                //    //        }
+                //    //    });
+                //    //}
+                //}
+            }
+        }
+
+        if (executeHttpRequest == true) {
+
+            //Data object
+            var data = {};
+            data.leagueName = title;
+            data.minRange = minrange;
+            data.maxrange = maxrange;
+            data.subleagues = subLeagueList;
+
+            var ext = file.substring(file.lastIndexOf('.') + 1, file.length);
+            var formData = new FormData();
+
+            if (ext == 'jpeg' || ext == 'jpg' || ext == 'png' || ext == 'PNG' || ext == 'JPG' || ext == 'JPEG' || ext == 'tiff' || ext == 'eps' || ext == 'raw') {
+
+                file = $('#file')[0].files[0]
+                formData.append('file', file);
+                $.ajax({
+                    type: "POST",
+                    url: "/manage/uploadFile",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    cache: false,
+                    async: false,
+                    complete: function(res) {
+                        data.leagueIcon = res.responseJSON;
+
+                        //Ajax Request
+                        loadHttpRequest("POST", "/manage/addLeague", addCouchingHubCallback, JSON.stringify(data));
+                    }
+                });
+            }
+
+        }
+    }
+
+    function addCouchingHubCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'League successfully added.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function() {
+            window.location.href = "/management/leagues";
+            //$("#add_hub_modal").modal('hide');
+            //table.draw();
+        })
+    }
+
+    //Edit Couching Hub Content
+    function showEditCouchingHubModal(hub, id, title, price, couchingType, category, mediaType) {
+
+        $("#file").val('');
+        $('#title').val(title);
+        $("#title_error").html('');
+        $('#price').val(price);
+        $("#price_error").html('');
+        $("#description_error").html('');
+
+        var description = $(hub).parent().find('input').val();
+        $('#description').val(description);
+
+        $(`#couchingType option[value=${couchingType}]`).attr('selected', 'selected');
+        $("#couchingType").val(couchingType).change();
+
+        $(`#categorySelect option[value=${category}]`).attr('selected', 'selected');
+        $("#categorySelect").val(category).change();
+
+        document.getElementById('couchingType').disabled = true;
+        document.getElementById('categorySelect').disabled = true;
+
+        $("#targetDIV").html("");
+        indexList = [];
+        i = 0;
+
+        $('#id').val(id);
+        $('#mType').val(mediaType);
+        $("#add_hub_modal").modal('show');
+    }
+
+</script>

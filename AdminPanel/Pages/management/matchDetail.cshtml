@@ -1,0 +1,898 @@
+﻿@page "{userId}"
+
+@model AdminPanel.Pages.management.matchDetailModel
+<style>
+    .dropdown-toggle::after {
+        display: none !important;
+    }
+
+    .pac-container {
+        z-index: 100000 !important;
+    }
+</style>
+<div class="container-fluid">
+    <h4><span id="pageTitleFilter"></span> Matches</h4>
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table w-100" id="match_detail_table">
+                    <thead class="no-wrap">
+                        <tr>
+                            <th>Id</th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Thumbnail</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Title</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Level</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Category</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Description</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Location</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Teams</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Match Status</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Status</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Start Date</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Created At</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Action</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="statusType" value="0" />
+
+@*Course Topic Detail modal*@
+<div class="modal fade" id="teams_detail_modal" aria-modal="true" data-backdrop="static" data-keyboard="false" role="dialog">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Teams</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="matchstatus"></div>
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <div class="row" id="checkpoint_detail"></div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div id="matchstatusA"></div>
+                        <div id="teamA_user_detail"></div>
+                        <div id="teamA_user_info_detail"></div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div id="matchstatusB"></div>
+                        <div id="teamB_user_detail"></div>
+                        <div id="teamB_user_info_detail"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Course Detail modal*@
+<div class="modal fade" id="course_detail_modal" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Course Detail</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <textarea class="border-0 w-100" style="outline-style:none" rows="5" id='detail'></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Rejection Reason modal*@
+<div class="modal fade" id="rejection_reason_modal" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-overlay-title">Reason</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <textarea class="w-100 border-0" rows="4" id="reason" style="outline-style:none"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="edit_match_detail">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Match Detail</h3>
+                <button type="button" class="close cls" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <input id="id" hidden />
+                    <div class="form-group mb-3 col-md-6">
+                        <label for="thumbnail">Thumbnail</label>
+                        <input id="file" name="thumbnail" type="file" class="form-control" accept="image/*" />
+                    </div>
+
+                    <div class="form-group mb-3 col-md-6">
+                        <label for="Type">Category</label>
+                        <select id="categoryType" name="Type" class="form-control">
+                            <option value="0">Ranked</option>
+                            <option value="1">Unranked</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-3 col-md-6">
+                        <label for="Level">Level</label>
+                        <select id="levelType" name="Level" class="form-control">
+                            <option value="0">Single</option>
+                            <option value="1">Double</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-3 col-md-6">
+                        <label for="Title">Title</label>
+                        <input type="text" id="title" name="Title" class="form-control" />
+                        <span class="text-danger" id="title_error"></span>
+                    </div>
+
+                   @* <div class="form-group mb-3 col-md-6">
+                        <label>Date</label>
+                        <input id="date" type="date" class="form-control" />
+                        <span class="text-danger" id="date_error"></span>
+                    </div>
+
+                    <div class="form-group mb-3 col-md-6">
+                        <label>Time</label>
+                        <input id="timeVal" type="time" class="form-control" />
+                        <span class="text-danger" id="time_error"></span>
+                    </div>*@
+
+                  @*  <div class="form-group mb-3 col-md-12">
+                        <span id="addressVal" class="my-3"></span>
+                        <label>Map Location</label>
+                        <div>
+                            <input type="hidden" class="form-control" id="lat" value="-33.878308" />
+                            <input type="hidden" class="form-control" id="lng" value="151.1830443" />
+                            <input style="z-index:2147483647;" id="autocomplete_search" name="autocomplete_search" type="text" class="form-control" placeholder="Search Location" />
+
+                            <br />
+                            <div class="form-group" style="width: 100%;">
+                                <div id="map" style="width:100%; height:400px;padding:10px;margin-top:10px;"></div>
+                                <button hidden id="MyLocator" style="background-color: rgb(255, 255, 255);box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;display: block;border: 0px;margin: 0px; padding: 0px;text-transform: none;position: relative;cursor: pointer;user-select: none;overflow: hidden;width: 40px;height: 40px;top: -250px;float: right;right: 11px;">
+                                </button>
+                            </div>
+                            <label id="lab" style=" position: relative;top: -69px;font-size: 16px;font-weight: 500;"></label>
+
+
+                        </div>
+                    </div>*@
+
+                    <div class="form-group mb-3 col-md-12">
+                        <label for="matchDescription">Description</label>
+                        <textarea id="description" name="matchDescription" rows="3" class="form-control w-100"></textarea>
+                        <span class="text-danger" id="description_error"></span>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer float-right">
+                <button  onclick="editMatchFunction()" class="btn btn-primary">Save</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+
+        var columns = [
+            {
+                "data": "data.id",
+                "name": "data.id"
+            },
+            {
+                "data": "data.thumbnail",
+                "name": "data.thumbnail",
+                "render": function (data, row) {
+                    return `<img class="img-circle" width="35" height="35" src = "${data}">`
+                }
+            },
+            {
+                "data": "data.title",
+                "name": "data.title",
+                "render": function (data, row) {
+                    return '<div class="datatableTdTextWrapper">' + data + '</div>'
+                }
+            },
+            {
+                "data": "data.matchType",
+                "name": "data.matchType",
+                "render": function (data, row) {
+                    if (data == 0)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-secondary">Single</span></div>`;
+                    else if (data == 1)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-secondary">Double</span></div>`;
+                    else
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-secondary">Mixed</span></div>`;
+                }
+            },
+            {
+                "data": "data.matchCategory",
+                "name": "data.matchCategory",
+                "render": function (data, row) {
+                    if (data == 0)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-secondary">Ranked</span></div>`;
+                    else return `<div class="datatableTdTextWrapper"><span class="badge badge-secondary">Unranked</span></div>`;
+                }
+            },
+            {
+                "data": "data.description",
+                "name": "data.description",
+                "render": function (data, row) {
+                    return '<a class="btn-sm btn-primary waves-effect m-r-20 cursor-pointer detail" data-detail="' + data + '" title="View Detail"><i class="far fa-eye text-white"></i></a>'
+                }
+            },
+            {
+                "data": "data.latitute",
+                "name": "data.latitute",
+                "render": function (data, row, payload) {
+                    return '<a href="http://www.google.com/maps/place/' + data + ',' + payload.longitute + '" target="_blank"><i class="fas fa-map-marker-alt"></i></a>'
+                }
+            },
+            {
+                "data": "data.id",
+                "name": "data.id",
+                "render": function (data, row) {
+                    return `<a class="btn btn-sm btn-outline-danger ml-2 teamDetail" data-matchId="${data}"><i class="fas fa-user-friends"></i></a>`
+                }
+            },
+            {
+                "data": "data.status",
+                "name": "data.status",
+                "render": function (data, row) {
+                    if (data == 0)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-secondary">Initial</span></div>`;
+                    else if (data == 1)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-primary">Waiting</span></div>`;
+                    else if (data == 2)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-secondary">ReadyToStart</span></div>`;
+                    else if (data == 3)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-success">Started</span></div>`;
+                    else if (data == 4)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-success">Completed</span></div>`;
+                    else if (data == 5)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-success">Rated</span></div>`;
+                    else if (data == 6)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-danger">Cancelled</span></div>`;
+                    else if (data == 7)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-danger">Expired</span></div>`;
+                    else
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-warning">Insufficient Participant</span></div>`;
+
+                }
+            },
+            {
+                "data": "data.deleted",
+                "name": "data.deleted",
+                "render": function (data, row) {
+                    if (data == false)
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-success">Active</span></div>`;
+                    else
+                        return `<div class="datatableTdTextWrapper"><span class="badge badge-danger">Blocked</span></div>`;
+
+                }
+            },
+            {
+                "data": "data.startDateTime",
+                "name": "data.startDateTime",
+                "render": function (data, row, payload) {
+                    return '<div class="datatableTdTitleTextWrapper"><span>' + payload.data.startDate + ' ' + data + ' </span></div>'
+                }
+            },
+            {
+                "data": "createdAt",
+                "name": "createdAt",
+                "render": function (data, row, payload) {
+                    return '<div class="datatableTdTextWrapper">' + data + '</div>'
+                }
+            },
+            {
+                "data": "data.deleted",
+                "name": "data.deleted",
+                "render": function (data, row, payload) {
+
+                    if (data == false) {
+                        
+                            return `<div class="no-wrap"><input type="hidden" value="${payload.data.description}"/><a class="btn btn-sm btn-outline-primary" onclick="showEditMatchModal(this,'${payload.data.id}',${payload.data.matchCategory}
+                                                                    ,${payload.data.matchType},'${payload.data.title}',${payload.data.latitute},${payload.data.longitute},
+                                                                                '${payload.data.startDate}','${payload.data.startDateTime}','${payload.data.address}')"><i class="fas fa-edit"></i></a>
+                                                                  <a class="btn btn-sm btn-outline-danger ml-2" id="softDeleteMatchBtn"><i class="fas fa-ban"></i></a></div>`;
+                       
+                    }
+                    else if (data == true) {
+                        return `<div class="dropdown show">
+                                                                                             <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                               <i class="fas fa-ellipsis-h"></i>
+                                                                                             </a>
+                                                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                                                <a class="dropdown-item cursor-pointer" id="softDeleteMatchBtn" title="Active"><i class="fas fa-check-circle"></i> Active</a>
+                                                                                                <a data-detail="${payload.data.blockReason}" class="dropdown-item text-danger cursor-pointer" title="Reason" id="rejection_reason"><i class="fas fa-eye"></i> Reason</a>
+                                                                                             </div>
+                                                                                           </div>`;
+                    }
+                }
+            },
+
+        ];
+        var order = [[11, "desc"]];
+        var columnDefs = [{
+            "targets": [0],
+            "visible": false,
+            "searchable": false
+        }];
+        //Init Datatable
+        initMatchDatatable('#match_detail_table', '/manage/getPaginationDataDetail/@Model.userId/1', '#statusType', '#pageTitleFilter', columns, order, columnDefs);
+    });
+
+    //Soft Delete Feature Handler
+    $('#match_detail_table tbody').on('click', '[id*=softDeleteMatchBtn]', function () {
+        //Get Row Data
+        var data = table.row($(this).parents('tr')).data();
+        var title, confirmButtonText;
+
+        var statusCheck = data.data.deleted;
+
+        if (statusCheck == true) {
+            title = 'Are you sure, you want to unblock this match?';
+            confirmButtonText = 'Yes, Unblock it!';
+        }
+        else {
+            title = 'Are you sure, you want to block this match?';
+            confirmButtonText = 'Yes, Block it!';
+        }
+
+        swal.fire({
+            title: title,
+            icon: 'warning',
+            allowOutsideClick: false,
+            showCloseButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: confirmButtonText
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                if (statusCheck == true) {
+                    //Ajax Request
+                    loadHttpRequest("GET", "/manage/softDeleteMatch?id=" + data.data.id + "&isDeleted=" + statusCheck + "&reason=" + null, softDeleteCallback);
+                }
+                else {
+                    rejectRequest(data.data.id, statusCheck);
+                }
+            }
+        });
+    });
+
+    async function rejectRequest(id, status) {
+        await Swal.fire({
+            input: 'textarea',
+            inputLabel: 'Reason',
+            inputPlaceholder: 'Type your reason here...',
+            inputAttributes: {
+                'aria-label': 'Type your reason here'
+            },
+            showCancelButton: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                if (result.value) {
+                    //Ajax Request
+                    loadHttpRequest("GET", "/manage/softDeleteMatch?id=" + id + "&isDeleted=" + status + "&reason=" + result.value, softDeleteCallback);
+                } else {
+                    toastr.error("Please provide reason to proceed.");
+                    return false;
+                }
+            }
+        });
+    }
+
+    function softDeleteCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Status updated.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function () {
+            table.draw();
+        })
+    }
+
+    //Block Reason Handler
+    $('#match_detail_table tbody').on('click', '[id*=rejection_reason]', function () {
+        //Get Row Data
+        var data = $(this).attr("data-detail");
+        $('#reason').html(data);
+        $('#rejection_reason_modal').modal('show');
+    });
+
+    $('#match_detail_table tbody').on('click', '[class*=detail]', function () {
+        //Get Row Data
+        var detail = $(this).attr("data-detail");
+        $('#detail').text(detail);
+        $('#course_detail_modal').modal('show');
+    });
+
+    //Course topic detail
+    $('#match_detail_table tbody').on('click', '[class*=teamDetail]', function () {
+        var matchId = $(this).attr("data-matchId");
+        alert(matchId);
+        loadHttpRequest("GET", `/manage/getMatchCalculationScore?matchId=${matchId}`, getMatchTeamDetailCallBackHandler);
+    });
+
+    //handler ajax callback
+    function getMatchTeamDetailCallBackHandler(team) {
+        $("#checkpoint_detail").html('');
+        $("#teamA_user_detail").html('');
+        $("#teamB_user_detail").html('');
+
+        if (team.teamA != null) {
+            if (team.teamA.isMatchWon == true) {
+                $("#matchstatusA").append("<span>Winner</span>");
+            }
+            else {
+
+            }
+            if (team.teamA.members != null && team.teamA.members.length > 0) {
+                var id = team.matchId;
+                $("#teamA_user_detail").append(`<div class="row" id="teamA${team.matchId}"></div>`);
+                team.teamA.members.forEach(function (teamA) {
+                    var imageUrl = "";
+                    var content = '';
+                    if (CheckNullUndefined(teamA.user.profilePic)) {
+                        imageUrl = "/content/dist/img/no-image-available.png";
+                    }
+                    else {
+                        imageUrl = teamA.user.profilePic;
+                    }
+
+                    content += `<img class="img-circle" src="${imageUrl}" width="35" height="35">`;
+
+                    $("#teamA" + id).append(`<div id="teamA${teamA.user.id}" class="col-md-3"><img class="img-circle" src="${imageUrl}" width="35" height="35"> <div class="userprofile">${teamA.user.name}</div></div>`);
+
+                    $("#teamA" + teamA.user.id).append(`<div>${teamA.previousPoint}</div>`);
+                    $("#teamA" + teamA.user.id).append(`<div>${teamA.addMinusPoint}</div>`);
+                    $("#teamA" + teamA.user.id).append(`<div>${teamA.newPoint}</div>`);
+
+                });
+            }
+
+            if (team.teamA.scoreList != null && team.teamA.scoreList.length > 0) {
+                var score = team.teamA.scoreList;
+                for (var i = 0; i < score.length; i++) {
+                    $("#teamA_user_detail").append(`<div>${score[i]}</div>`);
+                }
+            }
+        }
+        if (team.teamB != null) {
+            if (team.teamB.isMatchWon == true) {
+                $("#matchstatusB").append("<span>Winner</span>");
+            }
+            else {
+
+            }
+            var id = team.matchId;
+            $("#teamB_user_detail").append(`<div class="row" id="teamB${team.matchId}"></div>`);
+            team.teamB.members.forEach(function (teamB) {
+                var imageUrl = "";
+                var content = '';
+                if (CheckNullUndefined(teamB.user.profilePic)) {
+                    imageUrl = "/content/dist/img/no-image-available.png";
+                }
+                else {
+                    imageUrl = teamB.user.profilePic;
+                }
+                content += `<img class="img-circle" src="${imageUrl}" width="35" height="35">`;
+                //$("#teamB_user_detail").append(`<div class="table" id="teamB${id}"></div>`)
+
+                $("#teamB" + id).append(`<div id="teamB${teamB.user.id}" style="margin-right:5px;"><img class="img-circle" src="${imageUrl}" width="35" height="35"> <div class="userprofile">${teamB.user.name}</div></div>`);
+            });
+            var content = '';
+            if (team.teamB.scoreList != null && team.teamB.scoreList.length > 0) {
+                var score = team.teamB.scoreList;
+
+                for (var i = 0; i < score.length; i++) {
+                    $("#teamB_user_detail").append(`<div>${score[i]}</div>`);
+                }
+            }
+            team.teamB.members.forEach(function (teamB) {
+                var imageUrl = "";
+                var content = '';
+                if (CheckNullUndefined(teamB.user.profilePic)) {
+                    imageUrl = "/content/dist/img/no-image-available.png";
+                }
+                else {
+                    imageUrl = teamB.user.profilePic;
+                }
+                content += `<img class="img-circle" src="${imageUrl}" width="35" height="35">`;
+                //$("#teamB_user_detail").append(`<div class="table" id="teamB${id}"></div>`
+
+                $("#teamB" + teamB.user.id).append(`<div>${teamB.previousPoint}</div>`);
+                $("#teamB" + teamB.user.id).append(`<div>${teamB.addMinusPoint}</div>`);
+                $("#teamB" + teamB.user.id).append(`<div>${teamB.newPoint}</div>`);
+            });
+        }
+        //if (course.topics != null && course.topics.length > 0) {
+        //    $("#topic_detail").append(`<div class="col-12 my-2"><h5>Course Topics</h5></div>`);
+        //    course.topics.forEach(function(topic) {
+        //        var content = '';
+        //        if (topic.detail != null && topic.detail.length > 0) {
+        //            for (var i = 0; i < topic.detail.length; i++) {
+        //                if (topic.detail[i].type == 0)
+        //                    content += '<div class="my-1" style="width: fit-content;"><img src="' + topic.detail[i].value + '" class="w-100 rounded" style="height:300px!important" /></div><hr>';
+
+        //                else if (topic.detail[i].type == 2)
+        //                    content += '<div class="my-1"><p>' + topic.detail[i].value + '</p></div><hr>'
+
+        //                else if (topic.detail[i].type == 3)
+        //                    content += '<div class="mt-2"><audio src="' + topic.detail[i].value + '" type="audio/x-m4a" controls onplay="stopAudio(this)"></audio></div><hr>'
+        //            }
+        //        }
+        //        else {
+        //            content = '<p class="my-1">No detail found</p>'
+        //        }
+        //        $("#topic_detail").append(`<div class="col-12 rounded shadow-sm py-2">
+        //                                <button type="button" class="btn btn-primary w-100 text-left" data-toggle="collapse" data-target="#topic${topic.topicId}">${topic.title}</button>
+        //                                <div id="topic${topic.topicId}" class="collapse">
+        //                                        ${content}
+        //                                </div>
+        //                         </div>`);
+        //    });
+        //}
+        //else {
+        //    $("#topic_detail").append(`<div class="col-12 my-2"><h4>No topic found</h4></div>`);
+        //}
+
+        //if (course.userCompletedCourse != null && course.userCompletedCourse.length > 0) {
+        //    $("#completed_user_detail").append(`<div class="col-12 my-3"><h5>Completed Users</h5></div>`);
+
+        //    course.userCompletedCourse.forEach(function(user) {
+
+        //        var imageUrl = "";
+        //        if (CheckNullUndefined(user.profilePicture)) {
+        //            imageUrl = "/content/dist/img/no-image-available.png";
+        //        }
+        //        else {
+        //            imageUrl = user.profilePicture;
+        //        }
+
+        //        $("#completed_user_detail").append(`<div class="col-12">
+        //                                <div class="user-block d-flex flex-row">
+        //                                     <img class="img-circle" src = "${imageUrl}">
+        //                                     <div class="ml-2"><a class="table-link" id="linkMakerDetails"> ${user.name}</a>
+        //                                     <p class="my-0"><i class="far fa-id-badge"></i> ${user.dateTime} </p></div>
+        //                                </div>
+        //                         </div>`);
+        //    });
+        //}
+        //else {
+        //    $("#completed_user_detail").append(`<div class="col-12 my-3"><h5>Course completed by no user</h5></div>`);
+        //}
+
+        $("#teams_detail_modal").modal('show');
+    }
+
+    function showEditMatchModal(hub, id, matchCategory, matchType, title, latitute, longitute,
+        startDate, startDateTime, address) {
+
+        $("#file").val('');
+        $('#title').val(title);
+        $("#title_error").html('');
+
+        $('#addressVal').val(address);
+        $('#lng').val(longitute);
+        $('#lat').val(latitute);
+
+        $("#timeVal").val(startDateTime);
+        $("#time_error").html('');
+
+        $("#date").val(startDate);
+        $("#date_error").html('');
+
+        $("#description_error").html('');
+        var description = $(hub).parent().find('input').val();
+        $('#description').val(description);
+
+        $(`#levelType option[value=${matchType}]`).attr('selected', 'selected');
+        $("#levelType").val(matchType).change();
+
+        $(`#categoryType option[value=${matchCategory}]`).attr('selected', 'selected');
+        $("#categoryType").val(matchCategory).change();
+
+        document.getElementById('categoryType').disabled = true;
+        document.getElementById('levelType').disabled = true;
+
+
+        $('#id').val(id);
+        $("#edit_match_detail").modal('show');
+    }
+
+    function editMatchFunction() {
+
+        var title = $('#title').val();
+        var categoryType = $('#categoryType').val();
+        var matchType = $('#levelType').val();
+
+        //var longitute = $('#lng').val();
+        //var latitute = $('#lat').val();
+
+        //var date = $("#date").val();
+        //var time = $("#timeVal").val();
+        var description = $('#description').val();
+
+        var file = $('#file').val();
+        var id = $('#id').val();
+
+        var executeHttpRequest = true;
+
+        if (CheckNullUndefined(title)) {
+            executeHttpRequest = false;
+            $("#title_error").html('Title is required.');
+        }
+        if (CheckNullUndefined(description)) {
+            executeHttpRequest = false;
+            $("#description_error").html('Decription is required.');
+        }
+        //if (CheckNullUndefined(date)) {
+        //    executeHttpRequest = false;
+        //    $("#description_error").html('Date is required.');
+        //}
+        //if (CheckNullUndefined(time)) {
+        //    executeHttpRequest = false;
+        //    $("#description_error").html('Time is required.');
+        //}
+
+        if (executeHttpRequest == true) {
+
+            //Data object
+            var data = {};
+            data.id = id;
+            data.title = title;
+            data.description = description;
+           
+            var formData = new FormData();
+
+            if (CheckNullUndefined(file)) {
+                //Ajax Request
+                loadHttpRequest("POST", "/manage/editMatchDetail", editMatchDetailCallback, JSON.stringify(data));
+            }
+            else {
+                file = $('#file')[0].files[0]
+                formData.append('file', file);
+                $.ajax({
+                    type: "POST",
+                    url: "/manage/uploadFile",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    cache: false,
+                    async: false,
+                    complete: function (res) {
+                        data.thumbnail = res.responseJSON;
+                        //Ajax Request
+                        loadHttpRequest("POST", "/manage/editMatchDetail", editMatchDetailCallback, JSON.stringify(data));
+                    }
+                });
+            }
+        }
+    }
+    function editMatchDetailCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Match edited successfully.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function () {
+            $("#edit_match_detail").modal('hide');
+            table.draw();
+        })
+    }
+</script>
+
+<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3-PXBvW4UuH10ZRBY7kd20EFcxDZksQU&libraries=places&callback=initMap"></script>
+<script type="text/javascript">
+
+    var marker;
+    var map;
+    var radius = 10000;
+
+    var geocoder;
+    function initMap() {
+        search_lat = "";
+        search_lng = "";
+        formattedAddress = "";
+        var input = document.getElementById('autocomplete_search');
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 11,
+            center: { lat: -33.878308, lng: 151.1830443 }
+        });
+        // var geoloccontrol = new klokantech.GeolocationControl(map, 11);
+        marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            zoom: 11,
+            animation: google.maps.Animation.DROP,
+            position: { lat: -33.878308, lng: 151.1830443 }
+        });
+        marker.addListener('click', toggleBounce);
+        markerCoords(marker);
+        geocoder = new google.maps.Geocoder();
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.addListener('place_changed', function () {
+            var place = autocomplete.getPlace();
+            // place variable will have all the information you are looking for.
+            $('#lat').val(place.geometry['location'].lat());
+            $('#long').val(place.geometry['location'].lng());
+            search_lat = place.geometry['location'].lat();
+            search_lng = place.geometry['location'].lng();
+            $("#address").html(place.formatted_address);
+            $("#autocomplete_search").val(place.formatted_address);
+
+            //setCountryStateCity(place, false);
+            // SETTING LAT LNG
+            $("#lat").val(search_lat);
+            $("#lng").val(search_lng);
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 18,
+                center: { lat: search_lat, lng: search_lng }
+            });
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                zoom: 18,
+                animation: google.maps.Animation.DROP,
+                position: { lat: search_lat, lng: search_lng }
+            });
+            marker.addListener('click', toggleBounce);
+            markerCoords(marker);
+            var latlng = new google.maps.LatLng(search_lat, search_lng);
+            map.setCenter(latlng);
+            console.log('init Map', search_lat);
+        });
+    }
+    function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+    }
+    function markerCoords(markerobject) {
+        google.maps.event.addListener(markerobject, 'dragend', function (evt) {
+            var newlat = evt.latLng.lat().toFixed(3);
+            var newlng = evt.latLng.lng().toFixed(3);
+            geocoder.geocode({
+                latLng: new google.maps.LatLng(newlat, newlng)
+            }, function (responses) {
+                if (responses && responses.length > 0) {
+                    //setCountryStateCity(responses, true);
+                    $("#address").html(responses[0].formatted_address);
+                    $("#autocomplete_search").val(responses[0].formatted_address);
+                }
+                else {
+                    console.log('Cannot determine address at this location.');
+                }
+            });
+            $("#lat").val(newlat);
+            $("#lng").val(newlng);
+            console.log(newlat, " drag value");
+
+        });
+    }
+    $("#MyLocator").on("click", function () {
+        getLocation();
+    })
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        else {
+            var latitude = "-33.878308";
+            var longitude = "151.1830443";
+            $("#lat").val("-33.878308");
+            $("#lng").val("151.1830443");
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 18,
+                center: { lat: latitude, lng: longitude }
+            });
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                zoom: 2,
+                animation: google.maps.Animation.DROP,
+                position: { lat: latitude, lng: longitude }
+            });
+            marker.addListener('click', toggleBounce);
+            //radius = 1000;
+            markerCoords(marker);
+            var latlng = new google.maps.LatLng(latitude, longitude);
+            map.setCenter(latlng);
+            $("#autocomplete_search").val(map.formatted_address);
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+    function showPosition(position) {
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 18,
+            center: { lat: position.coords.latitude, lng: position.coords.longitude }
+        });
+        marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            zoom: 2,
+            animation: google.maps.Animation.DROP,
+            position: { lat: position.coords.latitude, lng: position.coords.longitude }
+        });
+        marker.addListener('click', toggleBounce);
+        markerCoords(marker);
+        var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        map.setCenter(latlng);
+        $("#lat").val(position.coords.latitude);
+        $("#lng").val(position.coords.longitude);
+        console.log("Show position ", position.coords.latitude);
+    }
+</script>

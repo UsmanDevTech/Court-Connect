@@ -1,0 +1,201 @@
+﻿@page
+@model AdminPanel.Pages.management.WarningModel
+@{
+}
+
+<div class="container-fluid">
+    <div class="row mb-2 pt-4">
+        <div class="col-sm-6">
+            <h4><span id="pageTitleFilter"></span> Warnings</h4>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table w-100" id="warning_table">
+                    <thead class="no-wrap">
+                        <tr>
+                            <th>Id</th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Reported By</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Reported User</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Title</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Description</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">
+                                    Created UTC
+                                </div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">
+                                    Action
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @*Warning detail modal*@
+    <div class="modal fade" id="warning_detail_modal" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Warning Detail</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea class="border-0 w-100" style="outline-style:none" rows="5" id='detail'></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+
+        var columns = [
+            {
+                "data": "data.id",
+                "name": "data.id"
+            },
+            {
+                "data": "data.reportedBy",
+                "name": "data.reportedBy",
+                "render": function (data, row) {
+                    var imageUrl = "";
+                    if (CheckNullUndefined(data.profilePic)) {
+                        imageUrl = "/content/dist/img/no-image-available.png";
+                    }
+                    else {
+
+                        imageUrl = data.profilePic;
+                    }
+                    return ' <div>'
+                        + '     <img class="img-circle" width="45" height="45" src = "' + imageUrl + '">'
+                        + '     <span class="username"> ' + data.name + '</span>'
+                        + '     <span class="description"><i class="far fa-id-badge"></i> ' + data.email + ' </span>'
+                        + ' </div>';
+                }
+            },
+            {
+                "data": "data.reportedTo",
+                "name": "data.reportedTo",
+                "render": function (data, row, payload) {
+                    var imageUrl = "";
+                    if (CheckNullUndefined(payload.profilePic)) {
+                        imageUrl = "/content/dist/img/no-image-available.png";
+                    }
+                    else {
+
+                        imageUrl = payload.profilePic;
+                    }
+                    return ' <div>'
+                        + '     <img class="img-circle" width="45" height="45" src = "' + imageUrl + '">'
+                        + '     <span class="username"> ' + data.name + '</span>'
+                        + '     <span class="description"><i class="far fa-id-badge"></i> ' + data.email + ' </span>'
+                        + ' </div>';
+                }
+            },
+            {
+                "data": "data.title",
+                "name": "data.title",
+                "render": function (data, row) {
+                    return `<div class="datatableTdTextWrapper">${data}</div>`;
+                }
+            },
+            {
+                "data": "data.description",
+                "name": "data.description",
+                "render": function (data, row) {
+
+                    return '<a class="btn-sm btn-primary waves-effect m-r-20 cursor-pointer ticket_detail" data-detail="' + data + '" title="View Detail"><i class="far fa-eye text-white"></i></a>'
+                }
+            },
+            {
+                "data": "createdAt",
+                "name": "createdAt",
+                "render": function (data, row) {
+                    return '<div class="datatableTdTextWrapper">' + data + '</div>'
+                }
+            },
+
+            {
+                "data": "data.id",
+                "name": "data.id",
+                "render": function (data, row, payload) {
+                    return `<a class="btn btn-sm btn-outline-danger cursor-pointer" id="softDeleteWarning" title="Active"><i class="fas fa-trash"></i></a>`;
+                }
+            }
+        ];
+        var order = [[0, "desc"]];
+        var columnDefs = [{
+            "targets": [0],
+            "visible": false,
+            "searchable": false
+        }];
+        //Init Datatable
+        initGeneralDatatable('#warning_table', '/manage/getPaginationData/7', columns, order, columnDefs);
+    });
+
+
+    //Soft Delete Feature Handler
+    $('#warning_table tbody').on('click', '[id*=softDeleteWarning]', function () {
+        //Get Row Data
+        var data = table.row($(this).parents('tr')).data();
+
+        var id = data.data.id;
+
+        swal.fire({
+            title: 'Are you sure, you want to delete this warning?',
+            icon: 'warning',
+            allowOutsideClick: false,
+            showCloseButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //Ajax Request
+                loadHttpRequest("GET", "/manage/deleteWarning?id=" + id, softDeleteCallback);
+            }
+        });
+    });
+
+
+    function softDeleteCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Deleted.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function () {
+            table.draw();
+        })
+    }
+
+    $('#warning_table tbody').on('click', '[class*=ticket_detail]', function () {
+        var detail = $(this).attr("data-detail");
+        $('#detail').text(detail);
+        $('#warning_detail_modal').modal('show');
+    });
+
+
+
+</script>

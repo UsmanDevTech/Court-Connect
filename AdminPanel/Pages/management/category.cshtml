@@ -1,0 +1,503 @@
+﻿@page
+@model AdminPanel.Pages.management.categoryModel
+@{
+}
+
+<div class="container-fluid">
+    <div class="row mb-2 pt-4">
+        <div class="col-sm-6">
+            <h4><span id="pageTitleFilter"></span> Categories</h4>
+        </div>
+        <div class="col-sm-6">
+            <div class="float-sm-right">
+                <button class="btn btn-primary addBtn" onclick="addNew()"><i class="fa fa-plus"></i> Add Category</button>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table w-100" id="category_table">
+                    <thead class="no-wrap">
+                        <tr>
+                            <th>Id</th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Icon</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTitleTextWrapper">Name</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">Status</div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">
+                                    Created UTC
+                                </div>
+                            </th>
+                            <th>
+                                <div class="datatableTdTextWrapper">
+                                    Action
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="statusType" value="0" />
+<div class="modal fade" id="modal-overlay" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-overlay-title">Subscription</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="dataForm">
+                    <input type="hidden" id="bodyId" name="id" />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="categoryname">Category Name <span class="text-danger">*</span> <code>max 50 characters</code></label>
+                                <input type="text" class="form-control rounded-0" name="categoryname" id="categoryname" placeholder="enter category name..." maxlength="50">
+                                <span class="text-danger" id="categoryname-error"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="bodyFile">File Url <code>optional</code></label>
+                                <input type="file" class="form-control" id="uploadurl" name="uploadurl" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="d-none" id="packageimage"></div>
+            <input hidden data-counter="package" type="number" name="name" id="packageval" value="1" />
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" onclick="SaveCategory(this)">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        $(function () {
+
+            var columns = [
+            {
+                "data": "data.id",
+                "name": "data.id"
+            },
+            {
+                "data": "data.icon",
+                "name": "data.icon",
+                "render": function (data, row) {
+                    var imageUrl = "";
+                    if (CheckNullUndefined(data)) {
+                        imageUrl = "/content/dist/img/no-image-available.png";
+                    }
+                    else {
+                        imageUrl = data;
+                    }
+
+                    return '<img class="img-circle" width="35" height="35" src= "' + imageUrl + '">';
+                }
+            },
+             {
+                "data": "data.name",
+                "name": "data.name",
+                 "render": function (data, row) {
+
+                    return `<div class="datatableTdTextWrapper">${data}</div>`;
+                }
+            },
+            {
+                "data": "data.deleted",
+                "name": "data.deleted",
+                "render": function (data, row) {
+                    if (data == true) 
+                        return '<span class="badge badge-danger">Blocked</span>';
+                    else
+                        return '<span class="badge badge-success">Active</span>';
+                }
+            },
+            {
+                "data": "createdAt",
+                "name": "createdAt",
+                "render": function (data, row) {
+                    return '<div class="datatableTdTextWrapper">' + data + '</div>'
+                }
+            },
+         
+            {
+                "data": "data.deleted",
+                "name": "data.deleted",
+                "render": function (data, row, payload)
+                {
+                    if(data == false){
+                       return `<a class="btn btn-sm btn-outline-primary ml-2 editBtn" onclick="updatecategory(${payload.data.id})" data-categoryId="${payload.data.id}"><i class="fas fa-edit"></i></a>
+                       <a class="btn btn-sm btn-outline-danger ml-2" id="softDeleteUserBtn"><i class="fas fa-ban"></i></a>`;
+                    }
+                    else if(data == true){
+                       return `<a class="btn btn-sm btn-outline-success cursor-pointer" id="softDeleteUserBtn" title="Active"><i class="fas fa-check-circle"></i></a>`;
+                    }
+                }
+            }
+        ];
+        var order = [[5, "desc"]];
+        var columnDefs = [{
+            "targets": [0],
+            "visible": false,
+            "searchable": false
+        }];
+        //Init Datatable
+        initDatatable('#category_table', '/manage/getPaginationData/6', '#statusType', '#pageTitleFilter', columns, order, columnDefs);
+    });
+
+    $('#category_table tbody').on('click', '[class*=editBtn]', function() {
+        var categoryId = $(this).attr("data-categoryId");
+        alert(categoryId);
+        loadHttpRequest("GET", `/manage/getcouchingcategory?id=${categoryId}`, getMemberDetailCallBackHandler);
+    });
+
+        //handler ajax callback
+    function getMemberDetailCallBackHandler(agendas) {
+        //$("#subtask_detail").html('');
+        var categoryId = $(this).attr("data-categoryId");
+        $("#bodyId").val(agendas.id);
+        if (agendas != null) {
+            $("#categoryname").val(agendas.name);
+        }
+        else {
+            //$("#subtask_detail").append(`<div class="col-12 my-3"><h5>No Task found</h5></div>`);
+        }
+
+        $("#modal-overlay").modal('show');
+    }
+
+    function addNew() {
+        $("#bodyId").val('');
+        $("#categoryname").val('');
+        $("#modal-overlay-title").html("Add Category");
+        $("#modal-overlay").modal('show');
+    }
+
+    //function updatecategory(categoryId) {
+    //    //var categoryId = $(this).attr("data-categoryId");
+    //    $("#bodyId").val(categoryId);
+    //    //alert($("#bodyId").val());
+    //    $.ajax({
+    //        type: 'GET',
+    //        url: '/manage/getcouchingcategory?id=' + categoryId,
+    //        async: true,
+    //        processData: false,
+    //        contentType: false,
+    //        success: function(res) {
+    //            alert(res.name);
+    //            $("#categoryname").val(res.name);
+    //        },
+    //        error: function(error) {
+    //            return error;
+    //        },
+
+    //    });
+    //    //loadHttpRequest("GET", `/manage/getcouchingcategory?id=${categoryId}`, getMemberDetailCallBackHandler);
+    //    //Change Modal Title
+    //    $("#modal-overlay-title").html("Update Category");
+
+    //    //Show Modal
+    //    $("#modal-overlay").modal("toggle");
+    //}
+
+    //Soft Delete Feature Handler
+    $('#category_table tbody').on('click', '[id*=softDeleteUserBtn]', function () {
+        //Get Row Data
+        var data = table.row($(this).parents('tr')).data();
+        var title, confirmButtonText;
+
+        //var statusCheck = data.id;
+        var id = data.data.id;
+        var statusCheck = data.data.deleted;
+
+        if (statusCheck == true) {
+            title = 'Are you sure, you want to unblock this category?';
+            confirmButtonText = 'Yes, Unblock it!';
+        }
+        else {
+            title = 'Are you sure, you want to block this category?';
+            confirmButtonText = 'Yes, Block it!';
+        }
+
+        swal.fire({
+            title: title,
+            icon: 'warning',
+            allowOutsideClick: false,
+            showCloseButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: confirmButtonText
+        }).then((result) => {
+                if (result.isConfirmed) {
+
+                    if(statusCheck == true){
+                        //Ajax Request
+                        loadHttpRequest("GET", "/manage/softDeleteCategory?id="+id + "&isDeleted=" + statusCheck, softDeleteCallback);
+                    }
+                    else{
+                      loadHttpRequest("GET", "/manage/softDeleteCategory?id="+id + "&isDeleted=" + statusCheck, softDeleteCallback);
+                    }
+                }
+        });
+    });
+
+    async function rejectRequest(id, status, loginRole){
+          await Swal.fire({
+            input: 'textarea',
+            inputLabel: 'Reason',
+            inputPlaceholder: 'Type your reason here...',
+            inputAttributes: {
+            'aria-label': 'Type your reason here'
+            },
+            showCancelButton: true,
+            //preConfirm: () => {
+            //    if (someLogic()) {
+            //      return false; // Prevent confirmed
+            //    }
+            //},
+        }).then((result) => {
+                if (result.isConfirmed) {
+                    if(result.value){
+                         //Ajax Request
+                      loadHttpRequest("GET", "/manage/softDeleteUser?id="+id + "&isDeleted=" + status + "&reason=" + result.value +"&loginRole=" + loginRole, softDeleteCallback);
+                    }else{
+                       toastr.error("Please provide reason to proceed.");
+                       return false;
+                    }
+                }
+        });
+    }
+
+    function softDeleteCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Status updated.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function () {
+            table.draw();
+        })
+    }
+
+        function SaveCategory() {
+        var Id = $("#bodyId").val();
+        if (Id != '') {
+            var filevalue = $("#uploadurl").val();
+            if (filevalue == '') {
+                var executeHttpRequest = true;
+                var name = $("#categoryname").val();
+                //check field name
+                if (CheckNullUndefined(name.trim())) {
+                    Toast.fire({ icon: 'warning', title: '' });
+                    executeHttpRequest = false;
+                }
+                if (executeHttpRequest == true) {
+                    var data = {};
+                    data.id = Id;
+                    data.name = name;
+                    data.icon = null;
+
+                    loadHttpRequest("PUT", "/manage/updatecategory", updateCategoryCallback, JSON.stringify(data));
+
+                }
+            }
+            else {
+                var executeHttpRequest = true;
+                var name = $("#categoryname").val();
+                var url = $("#uploadurl")[0].files[0];
+                var file = $("#uploadurl").val();
+                var ext = file.substring(file.lastIndexOf('.') + 1, file.length);
+                var formData = new FormData();
+
+                formData.append("file", url);
+                console.log(formData);
+                //check field name
+                if (CheckNullUndefined(name.trim())) {
+                    Toast.fire({ icon: 'warning', title: '' });
+                    executeHttpRequest = false;
+                }
+                if (CheckNullUndefined(url)) {
+                    Toast.fire({ icon: 'warning', title: '' });
+                    executeHttpRequest = false;
+                }
+                //if (ext != 'jpeg' || ext != 'jpg' || ext != 'png' || ext != 'PNG' || ext != 'JPG' || ext != 'JPEG' || ext != 'tiff' || ext != 'eps' || ext != 'raw' || ext != 'TIFF' || ext != 'EPS' || ext != 'RAW') {
+                //    Toast.fire({ icon: 'warning', title: 'You can only upload Image' });
+                //    executeHttpRequest = false;
+                //}
+                if (executeHttpRequest == true) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/manage/uploadFile",
+                        dataType: "json",
+                        contentType: false,
+                        processData: false,
+                        data: formData,
+                        success: function(res) {
+                            //var data = JSON.parse(JSON.stringify(data));
+                            //alert(data.thumbnail);
+                            var data = {};
+                            data.id = Id;
+                            data.name = name;
+                            data.icon = res;
+
+                            loadHttpRequest("PUT", "/manage/updatecategory", updateCategoryCallback, JSON.stringify(data));
+                        },
+                        error: function(error) {
+                            toastr.error("Error", error.message);
+                            return error;
+                        },
+                    });
+
+                }
+            }
+        }
+        else {
+            var executeHttpRequest = true;
+            var name = $("#categoryname").val();
+            var url = $("#uploadurl")[0].files[0];
+            var file = $("#uploadurl").val();
+            var ext = file.substring(file.lastIndexOf('.') + 1, file.length);
+
+            //check field name
+            if (CheckNullUndefined(name)) {
+                Toast.fire({ icon: 'warning', title: 'Name is Required' });
+                executeHttpRequest = false;
+            }
+            if (CheckNullUndefined(url)) {
+                Toast.fire({ icon: 'warning', title: 'File is Required' });
+                executeHttpRequest = false;
+            }
+            //if (ext != 'jpeg' || ext != 'jpg' || ext != 'png' || ext != 'PNG' || ext != 'JPG' || ext != 'JPEG' || ext != 'tiff' || ext != 'eps' || ext != 'raw' || ext != 'TIFF' || ext != 'EPS' || ext != 'RAW') {
+            //    Toast.fire({ icon: 'warning', title: 'You can only upload Image' });
+            //    executeHttpRequest = false;
+            //}
+            if (executeHttpRequest == true) {
+                var formData = new FormData();
+                formData.append("file", url);
+                $.ajax({
+                    type: "POST",
+                    url: "/manage/uploadFile",
+                    dataType: "json",
+                    contentType: false,
+                    processData: false,
+                    data: formData,
+                    success: function(res) {
+                        //var data = JSON.parse(JSON.stringify(data));
+                        //alert(data.thumbnail);
+                        var data = {};
+                        data.name = name;
+                        data.icon = res;
+                        loadHttpRequest("POST", "/manage/createcategory", createCategoryHandler, JSON.stringify(data));
+                    },
+                    error: function(error) {
+                        toastr.error("Error", error.message);
+                        return error;
+                    },
+                });
+
+            }
+        }
+    }
+
+        function createCategoryHandler(evt) {
+        Swal.fire({
+            title: 'Category Created successfully',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function() {
+            table.draw();
+            $("#modal-overlay").modal('hide');
+        })
+    }
+    
+        function updateCategoryCallback(response) {
+        Swal.fire({
+            title: 'Successfull',
+            text: 'Category Update Successfully.',
+            imageUrl: '/Images/Group 227317.png',
+            imageAlt: 'Custom image',
+            timer: 1500,
+            showCancelButton: false,
+            showConfirmButton: false
+        }).then(function() {
+            $("#modal-overlay").modal('hide');
+            table.draw();
+        })
+    }
+    
+    $('#organization_table tbody').on('click', '[class*=organization_detail]', function () {
+       var detail = $(this).attr("data-detail");
+        $('#organization_detail').text(detail);
+        $('#organization_detail_modal').modal('show');
+    });
+
+
+    //Block Reason Handler
+    $('#organization_table tbody').on('click', '[id*=rejection_reason]', function () {
+        //Get Row Data
+        var data = $(this).attr("data-detail");
+        $('#reason').html(data);
+        $('#rejection_reason_modal').modal('show');
+    });
+
+    //Branch Detail
+    $('#organization_table tbody').on('click', '[class*=branchDetail]', function () {
+        var businessId = $(this).attr("data-businessId");
+       loadHttpRequest("GET", `/manage/getBranchDetail?organizationId=${businessId}`, getBranchDetailCallBackHandler);
+    });
+
+    //handler ajax callback
+    function getBranchDetailCallBackHandler(branches) {
+       $("#branch_detail").html('');
+
+        if (branches != null && branches.length > 0){
+
+            branches.forEach(function (branch) {
+                var status = '';
+                if(branch.branchStatus == true)
+                    status = '<span class="badge btn-danger">Blocked</span>';
+                else
+                    status = '<span class="badge btn-success">Active</span>';
+
+                $("#branch_detail").append(`<div class="col-md-6 col-12 mt-2">
+                       <div class="user-block" style="float: none!important;">
+                            <img class="img-circle" src = "${branch.branchLogo}">
+                            <div><a> ${branch.branchName}</a></div>
+                            <div><a> ${branch.branchEmail}</a></div>
+                            <div><i class="far fa-location"></i>${branch.branchAddress}</div>
+                            ${status}
+                       </div>
+                </div>`);
+            });
+        }
+        else{
+              $("#branch_detail").append(`<div class="col-12 my-3"><hr><h5>No branch found</h5></div>`);
+        }
+
+        $("#branch_detail_modal").modal('show');
+    }
+
+</script>

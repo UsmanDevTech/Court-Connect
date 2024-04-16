@@ -1,0 +1,129 @@
+is_global = true
+build_property.TargetFramework = net6.0-windows
+build_property.TargetPlatformMinVersion = 7.0
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AdminPanel
+build_property.RootNamespace = AdminPanel
+build_property.ProjectDir = D:\CleanArch\CourtConnect\AdminPanel\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = D:\CleanArch\CourtConnect\AdminPanel
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/account/dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWNjb3VudFxkYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/account/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWNjb3VudFxsb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/account/logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWNjb3VudFxsb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/account/profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWNjb3VudFxwcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/addLeague.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFxhZGRMZWFndWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/category.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFxjYXRlZ29yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/couchingHub.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFxjb3VjaGluZ0h1Yi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/drillDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFxkcmlsbERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/leagues.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFxsZWFndWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/matchDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFxtYXRjaERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/matches.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFxtYXRjaGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/registerOrganization.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFxyZWdpc3Rlck9yZ2FuaXphdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/subleagues.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFxzdWJsZWFndWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/subscription.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFxzdWJzY3JpcHRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFx1c2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/management/Warning.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbWFuYWdlbWVudFxXYXJuaW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/setting/about.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc2V0dGluZ1xhYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/setting/privacyPolicy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc2V0dGluZ1xwcml2YWN5UG9saWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/setting/termAndConditions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc2V0dGluZ1x0ZXJtQW5kQ29uZGl0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/Shared/_SidebarNavigationPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9TaWRlYmFyTmF2aWdhdGlvblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/Shared/_TopNavigationPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Ub3BOYXZpZ2F0aW9uUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CleanArch/CourtConnect/AdminPanel/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-zs5wft6i3j

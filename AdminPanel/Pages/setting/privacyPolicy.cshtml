@@ -1,0 +1,91 @@
+﻿@page
+@model AdminPanel.Pages.setting.privacyPolicyModel
+
+<style>
+    .note-editor {
+        overflow-y: scroll;
+    }
+
+    .font-16 {
+        font-size: 16px !important;
+    }
+    .height-fitContent{
+        height:fit-content!important;
+    }
+</style>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header d-sm-flex">
+            <h2 class="mb-4"> Privacy Policy <span id="content_error" class="text-danger font-16"></span></h2>
+            <a class="btn btn-primary ml-auto height-fitContent" onclick="edit()">Edit</a>
+        </div>
+
+        <div id="englishPrivacy">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div style="border: none; width: inherit;" id="english-simple-text" name="Description">@Html.Raw(@Model.htmlContent.value)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer englishFooter d-none">
+                <div class="d-sm-flex float-right">
+                    <a class="btn btn-danger mr-2" onclick="CancelSection()">Cancel</a>
+                    <a class="btn btn-success" onclick="save()">Update</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function edit() {
+            $('#english-simple-text').summernote({ focus: true });
+
+            $('.englishFooter').removeClass('d-none');
+            $('.englishFooter').addClass('d-block');
+    };
+    function CancelSection() {
+
+            $('#english-simple-text').summernote('reset');
+            $('#english-simple-text').summernote('destroy');
+
+            $('.englishFooter').removeClass('d-block');
+            $('.englishFooter').addClass('d-none');
+      }
+
+    function save() {
+        var data = {};
+        data.type = 0;
+
+        var markup = $('#english-simple-text').summernote('code');
+        $('#english-simple-text').html(markup);
+
+        if($('#english-simple-text').summernote('isEmpty')){
+            $('#content_error').html('Provide content to update');
+        }
+        else{
+            $('#content_error').html('');
+            data.htmlContent = markup;
+            loadHttpRequest("POST", "/manage/updateAppContent", addContentCallback, JSON.stringify(data));
+        }
+    };
+
+      function addContentCallback(response){
+         Swal.fire({
+                title: 'Successfull',
+                text: 'Content successfully Update.',
+                imageUrl: '/Images/Group 227317.png',
+                imageAlt: 'Custom image',
+                timer: 1500,
+                showCancelButton: false,
+                showConfirmButton: false
+            }).then(function () {
+
+                $('.englishFooter').removeClass('d-block');
+                $('.englishFooters').addClass('d-none');
+
+                $('#english-simple-text').summernote('destroy');
+            })
+    }
+</script>
